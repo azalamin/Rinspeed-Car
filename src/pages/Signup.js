@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 import SocialLogin from "../components/SocialLogin";
+import auth from "../firebase.init";
 
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile] = useUpdateProfile(auth);
+  const location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-//   if (true) {
-//       return <Loading />;
-//   }
+
+  const onSubmit = async (data) => {
+    const email = data?.email;
+    const password = data.password;
+    const fullName = data.fullName;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: fullName });
+    reset();
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <section className="min-h-[80vh] flex justify-center items-center my-20">
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -66,7 +96,7 @@ const Signup = () => {
                 <span class="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 class="input input-bordered"
                 {...register("password", {
@@ -103,6 +133,13 @@ const Signup = () => {
                   </Link>
                 </p>
               </label>
+              {error ? (
+                <p>
+                  <small className="text-red-600">{error?.message}</small>
+                </p>
+              ) : (
+                ""
+              )}
             </div>
             <div class="form-control mt-6">
               <button type="submit" class="btn btn-primary">

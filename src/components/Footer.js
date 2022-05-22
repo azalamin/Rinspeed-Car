@@ -14,7 +14,7 @@ const Footer = () => {
         backgroundRepeat: "no-repeat",
       }}
       className={`${
-        routeName.map((route) => pathname.includes(route)) && "hidden"
+        routeName.find((route) => pathname.includes(route)) ? "hidden" : "block"
       }`}
     >
       <div className="bg-[#ffffffbb] shadow-2xl pt-14">
