@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 import SocialLogin from "../components/SocialLogin";
+import auth from "../firebase.init";
 
 const Login = () => {
-  const user = false;
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const location = useLocation();
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
@@ -19,10 +23,19 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data);
+    const email = data?.email;
+    const password = data.password;
+    signInWithEmailAndPassword(email, password);
+    reset();
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <section className="min-h-[80vh] flex justify-center items-center mt-10 py-10">
@@ -79,6 +92,16 @@ const Login = () => {
                   </Link>
                 </p>
               </label>
+              {error ? (
+                <p>
+                  <small className="text-red-600">
+                    {error?.message.includes("user-not-found") ? 'No user found' : ''}
+                    {error?.message.includes("wrong-password") ? 'Wrong password' : ''}
+                  </small>
+                </p>
+              ) : (
+                ""
+              )}
             </div>
             <div class="form-control mt-6">
               <button type="submit" class="btn btn-primary">
