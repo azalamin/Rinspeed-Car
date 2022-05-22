@@ -23,7 +23,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -95,8 +95,12 @@ const Login = () => {
               {error ? (
                 <p>
                   <small className="text-red-600">
-                    {error?.message.includes("user-not-found") ? 'No user found' : ''}
-                    {error?.message.includes("wrong-password") ? 'Wrong password' : ''}
+                    {error?.message.includes("user-not-found")
+                      ? "No user found"
+                      : ""}
+                    {error?.message.includes("wrong-password")
+                      ? "Wrong password"
+                      : ""}
                   </small>
                 </p>
               ) : (

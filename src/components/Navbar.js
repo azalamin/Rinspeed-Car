@@ -61,21 +61,21 @@ const Navbar = () => {
           <li className="mx-1">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li className="mx-1">
-            <a>Parent</a>
-          </li>
           {user ? (
-            <button
-              onClick={() => signOut(auth)}
-              className="btn btn-primary btn-outline"
-            >
-              Logout
-            </button>
+            <>
+              <li className="mx-1">
+                <NavLink to="/d">Dashboard</NavLink>
+              </li>
+              <button
+                onClick={() => signOut(auth)}
+                className="btn btn-link mx-1"
+              >
+                Logout {user?.displayName.slice(0, 2)}
+              </button>
+            </>
           ) : (
             <li className="mx-1">
-              <NavLink className="mx-1" to="/login">
-                Login
-              </NavLink>
+              <NavLink to="/login">Login</NavLink>
             </li>
           )}
         </ul>
