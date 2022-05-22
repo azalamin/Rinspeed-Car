@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import PrivetRoute from "./authentication/PrivetRoute";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -22,6 +23,7 @@ function App() {
           ))}
         </Route>
       </Routes>
+      <ToastContainer />
       <Footer />
     </>
   );
