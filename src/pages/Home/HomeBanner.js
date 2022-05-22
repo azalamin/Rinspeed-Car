@@ -3,14 +3,14 @@ import homeHero from '../../assets/image/home-hero.png';
 
 const HomeBanner = () => {
     return (
-      <div
+      <section
         style={{
           background: `url(${homeHero})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-        className="flex justify-center items-center min-h-[91vh] px-5 sm:px-10"
+        className="flex justify-center items-center min-h-[91vh] px-5 md:px-10 mb-20"
       >
         <div>
           <h1 className="font-bold text-center text-4xl sm:text-7xl text-white">
@@ -28,7 +28,7 @@ const HomeBanner = () => {
             </button>
           </div>
         </div>
-      </div>
+      </section>
     );
 };
 

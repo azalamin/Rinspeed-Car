@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import BusinessSummary from "./BusinessSummary";
 import HomeBanner from "./HomeBanner";
+import Parts from "./Parts";
 
 const Home = () => {
   return (
-    <>
-      <Navbar />
-      <main>
-        <HomeBanner />
-      </main>
-    </>
+    <main>
+      <HomeBanner />
+      <Parts />
+      <BusinessSummary />
+    </main>
   );
 };
 
