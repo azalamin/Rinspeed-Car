@@ -15,7 +15,7 @@ const Footer = () => {
         <footer class="footer p-10 text-base-content">
           <div>
             <span class="footer-title">Services</span>
-            <a href="#link" class="link link-hover">Branding</a>
+            <a href="#business" class="link link-hover">Summary</a>
             <a href="#link" class="link link-hover">Design</a>
             <a href="#link" class="link link-hover">Marketing</a>
             <a href="#link" class="link link-hover">Advertisement</a>
@@ -24,8 +24,8 @@ const Footer = () => {
             <span class="footer-title">Company</span>
             <a href="#link" class="link link-hover">About us</a>
             <a href="#link" class="link link-hover">Contact</a>
-            <a href="#link" class="link link-hover">Jobs</a>
-            <a href="#link" class="link link-hover">Press kit</a>
+            <a href="#parts" class="link link-hover">Parts</a>
+            <a href="#reviews" class="link link-hover">Reviews</a>
           </div>
           <div>
             <span class="footer-title">Legal</span>

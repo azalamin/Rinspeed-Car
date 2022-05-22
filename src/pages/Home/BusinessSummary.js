@@ -8,15 +8,16 @@ import bgBusiness from '../../assets/image/business-bg.png';
 const BusinessSummary = () => {
     return (
       <section
+        id="business"
         style={{
           background: `url(${bgBusiness})`,
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
         }}
-        className="mb-20 py-10 md:py-20 shadow-xl"
+        className="pt-28 shadow-xl pb-20"
       >
-        <h1 className="text-center text-4xl font-bold uppercase mb-16">
+        <h1 className="text-center text-4xl font-bold uppercase mb-20">
           Our <span className="text-primary">Business</span> Summary
         </h1>
         <div class="md:flex justify-center text-center py-5 px-5 md:px-10">

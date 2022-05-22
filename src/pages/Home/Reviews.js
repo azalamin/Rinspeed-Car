@@ -46,7 +46,7 @@ const Reviews = () => {
     },
   ];
   return (
-    <section className="px-5 md:px-10 mb-20">
+    <section className="px-5 md:px-10 pt-28" id="reviews">
       <h2 className="text-center pt-10 font-bold text-xl pb-2">Testimonials</h2>
       <h1 className="text-center text-4xl font-bold uppercase mb-20">
         What <span className="text-primary">Our Client</span> Says

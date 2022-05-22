@@ -10,7 +10,7 @@ const HomeBanner = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-        className="flex justify-center items-center min-h-[91vh] px-5 md:px-10 mb-20"
+        className="flex justify-center items-center min-h-[91vh] px-5 md:px-10"
       >
         <div>
           <h1 className="font-bold text-center text-4xl sm:text-7xl text-white">
@@ -23,9 +23,9 @@ const HomeBanner = () => {
             <button className="px-5 py-3 rounded uppercase shadow-lg shadow-primary hover:bg-white hover:shadow-white hover:text-black font-semibold bg-primary mr-4 text-white w-full sm:w-auto mb-6 sm:mb-0">
               Learn More
             </button>
-            <button className="px-5 py-3 rounded uppercase shadow-lg shadow-white hover:bg-primary hover:shadow-primary hover:text-white font-semibold bg-white w-full sm:w-auto">
+            <a href="#parts" className="px-5 py-3 rounded uppercase shadow-lg shadow-white hover:bg-primary hover:shadow-primary hover:text-white font-semibold bg-white w-full sm:w-auto">
               Our Parts
-            </button>
+            </a>
           </div>
         </div>
       </section>
