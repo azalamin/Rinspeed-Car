@@ -23,7 +23,7 @@ const HomeBanner = () => {
             <button className="px-5 py-3 rounded uppercase shadow-lg shadow-primary hover:bg-white hover:shadow-white hover:text-black font-semibold bg-primary mr-4 text-white w-full sm:w-auto mb-6 sm:mb-0">
               Learn More
             </button>
-            <a href="#parts" className="px-5 py-3 rounded uppercase shadow-lg shadow-white hover:bg-primary hover:shadow-primary hover:text-white font-semibold bg-white w-full sm:w-auto">
+            <a href="#parts" className="px-5 py-3 block sm:inline-block rounded uppercase shadow-lg shadow-white hover:bg-primary hover:shadow-primary hover:text-white font-semibold bg-white w-full sm:w-auto">
               Our Parts
             </a>
           </div>

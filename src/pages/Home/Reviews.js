@@ -46,7 +46,7 @@ const Reviews = () => {
     },
   ];
   return (
-    <section className="px-5 md:px-10 pt-28" id="reviews">
+    <section className="px-5 md:px-10 pt-28 pb-16 bg-slate-50" id="reviews">
       <h2 className="text-center pt-10 font-bold text-xl pb-2">Testimonials</h2>
       <h1 className="text-center text-4xl font-bold uppercase mb-20">
         What <span className="text-primary">Our Client</span> Says
@@ -55,7 +55,7 @@ const Reviews = () => {
         {reviews.map((review, index) => (
           <div
             key={index}
-            class="w-full bg-slate-100 rounded-2xl shadow mb-10 md:mb-0"
+            class="w-full bg-white rounded-2xl shadow-xl mb-10 md:mb-0"
           >
             <div class="w-full flex justify-center p-5 text-center">
               <div>

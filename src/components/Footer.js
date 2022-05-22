@@ -11,27 +11,49 @@ const Footer = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="bg-[#ffffffbb]">
+      <div className="bg-[#ffffffbb] shadow-2xl pt-14">
         <footer class="footer p-10 text-base-content">
           <div>
             <span class="footer-title">Services</span>
-            <a href="#business" class="link link-hover">Summary</a>
-            <a href="#link" class="link link-hover">Design</a>
-            <a href="#link" class="link link-hover">Marketing</a>
-            <a href="#link" class="link link-hover">Advertisement</a>
+            <a href="#business" class="link link-hover">
+              Summary
+            </a>
+            <a href="#link" class="link link-hover">
+              Design
+            </a>
+            <a href="#link" class="link link-hover">
+              Marketing
+            </a>
+            <a href="#link" class="link link-hover">
+              Advertisement
+            </a>
           </div>
           <div>
             <span class="footer-title">Company</span>
-            <a href="#link" class="link link-hover">About us</a>
-            <a href="#link" class="link link-hover">Contact</a>
-            <a href="#parts" class="link link-hover">Parts</a>
-            <a href="#reviews" class="link link-hover">Reviews</a>
+            <a href="#link" class="link link-hover">
+              About us
+            </a>
+            <a href="#contact" class="link link-hover">
+              Contact
+            </a>
+            <a href="#parts" class="link link-hover">
+              Parts
+            </a>
+            <a href="#reviews" class="link link-hover">
+              Reviews
+            </a>
           </div>
           <div>
             <span class="footer-title">Legal</span>
-            <a href="#link" class="link link-hover">Terms of use</a>
-            <a href="#link" class="link link-hover">Privacy policy</a>
-            <a href="#link" class="link link-hover">Cookie policy</a>
+            <a href="#link" class="link link-hover">
+              Terms of use
+            </a>
+            <a href="#link" class="link link-hover">
+              Privacy policy
+            </a>
+            <a href="#link" class="link link-hover">
+              Cookie policy
+            </a>
           </div>
         </footer>
         <footer class="footer px-10 py-4 border-t text-base-content border-base-300">
