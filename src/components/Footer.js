@@ -4,6 +4,7 @@ import bgFooter from "../assets/image/footer.jpg";
 
 const Footer = () => {
   const { pathname } = useLocation();
+  const routeName = ["signup", "login", "reset"];
   return (
     <section
       style={{
@@ -12,7 +13,9 @@ const Footer = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className={`${pathname.includes("login") && "hidden"}`}
+      className={`${
+        routeName.map((route) => pathname.includes(route)) && "hidden"
+      }`}
     >
       <div className="bg-[#ffffffbb] shadow-2xl pt-14">
         <footer class="footer p-10 text-base-content">

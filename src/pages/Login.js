@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import SocialLogin from "../components/SocialLogin";
 
 const Login = () => {
   const {
@@ -11,9 +11,11 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <section className="min-h-[80vh] flex justify-center items-center mt-10">
+    <section className="min-h-[80vh] flex justify-center items-center mt-10 py-10">
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <h3 className="text-2xl font-bold text-center mt-5">Please Login</h3>
+        <h3 className="text-2xl font-bold text-center mt-5 uppercase">
+          Please Login
+        </h3>
         <div class="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div class="form-control">
@@ -22,7 +24,7 @@ const Login = () => {
               </label>
               <input
                 type="text"
-                placeholder="email"
+                placeholder="Email"
                 class="input input-bordered"
                 {...register("email", { required: "Email is required" })}
               />
@@ -42,7 +44,7 @@ const Login = () => {
               </label>
               <input
                 type="text"
-                placeholder="password"
+                placeholder="Password"
                 class="input input-bordered"
                 {...register("password", { required: "Password is required" })}
               />
@@ -56,12 +58,12 @@ const Login = () => {
                 ""
               )}
               <label class="label">
-                <Link to="/login" class="label-text-alt">
-                  Don't have account?{" "}
-                  <span className="text-primary link link-hover">
+                <p class="label-text-alt">
+                  Don't have account?
+                  <Link to="/signup" className="text-primary link link-hover">
                     Create New account
-                  </span>
-                </Link>
+                  </Link>
+                </p>
               </label>
             </div>
             <div class="form-control mt-6">
@@ -69,15 +71,12 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <Link to="/login" class="text-center text-red-500 block mt-3">
+            <Link to="/reset" class="text-center text-red-500 block mt-3">
               Forgot password?
             </Link>
           </form>
           <div class="divider">OR</div>
-          <button className="btn btn-outline btn-primary">
-              <FaGoogle className="mr-2"/>
-              Continue With Google
-          </button>
+          <SocialLogin />
         </div>
       </div>
     </section>
