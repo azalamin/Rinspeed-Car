@@ -25,7 +25,7 @@ const BusinessSummary = () => {
               <SiSymantec className="text-5xl text-primary" />
             </div>
             <div class="stat-value text-primary">100+</div>
-            <div class="stat-title">Served Customers</div>
+            <div class="stat-title">SERVED CUSTOMERS</div>
           </div>
 
           <div class="stat">
@@ -33,7 +33,7 @@ const BusinessSummary = () => {
               <RiFundsBoxFill className="text-5xl text-secondary" />
             </div>
             <div class="stat-value text-secondary">120M+</div>
-            <div class="stat-title">Annual revenue</div>
+            <div class="stat-title">ANNUAL REVENUE</div>
           </div>
 
           <div class="stat">
@@ -41,7 +41,7 @@ const BusinessSummary = () => {
               <MdReviews className="text-5xl text-accent" />
             </div>
             <div class="stat-value text-accent">33k+</div>
-            <div class="stat-title">Reviews</div>
+            <div class="stat-title">REVIEWS</div>
           </div>
 
           <div class="stat">
@@ -49,7 +49,7 @@ const BusinessSummary = () => {
               <FaTools className="text-5xl text-warning" />
             </div>
             <div class="stat-value text-warning">50+</div>
-            <div class="stat-title">Parts</div>
+            <div class="stat-title">PARTS</div>
           </div>
         </div>
       </section>
