@@ -1,6 +1,6 @@
 //* Main Task
 /**
- * 1. Done
- * 2. Looking
- * 3. Done
+ * 1. Done - change text
+ * 2. Done - change text
+ * 3. Done - change text
  */

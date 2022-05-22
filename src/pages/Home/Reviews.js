@@ -5,21 +5,21 @@ const Reviews = () => {
     {
       name: "Asraf Jaman",
       comment:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et voluptatem earum repellendus fugit itaque id.",
+        "I get support from customer service on profile issues and it's actually not a big deal for me, but maybe this becomes a serious topic if wrong over the actions. But thanks to the services of Miss / Madam Lauren, it was all done in just a few minutes. I am truly grateful to him for successfully overcoming this problem and she was very rational and smart in choosing the right course of action for the problem I was facing.",
       image: "https://api.lorem.space/image/face?hash=3175",
       start: 5,
     },
     {
       name: "Asraf Jaman",
       comment:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et voluptatem earum repellendus fugit itaque id.",
+        "I'm glad i found the opportunity to work as a Freelancer back in 2014. I was bankrupted with my local business and nothing left to do. But Freelancer.com was a light and it helped me to restore my financial status. Now I'm a full-time freelancer with multiple skills. It really gave me clarity while setting up my career-path & goals.",
       image: "https://api.lorem.space/image/face?hash=3174",
       start: 5,
     },
     {
       name: "Asraf Jaman",
       comment:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et voluptatem earum repellendus fugit itaque id.",
+        "I've have some issue with a deduction from my account. It was my fault without knowing accepting projects on freelancer platform. But help desk agent her name was Celestine D chat with me and instantly reverse the payment after understanding the scenario. I would say it was the best customer service",
       image: "https://api.lorem.space/image/face?hash=3173",
       start: 5,
     },
