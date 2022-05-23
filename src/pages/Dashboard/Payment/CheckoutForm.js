@@ -1,9 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [cardError, setCardError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [transaction, setTransaction] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
   const totalPrice = order?.totalPrice;
@@ -22,10 +26,9 @@ const CheckoutForm = ({ order }) => {
         }
       });
   }, [totalPrice]);
-  console.log(clientSecret);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }
@@ -41,35 +44,90 @@ const CheckoutForm = ({ order }) => {
       type: "card",
       card,
     });
+    setCardError(error?.message || "");
 
-    if (error) {
-      console.log("[error]", error);
+    // confirm card payment
+    setSuccess("");
+    setTransaction("");
+    const { paymentIntent, error: intentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: order?.name,
+            email: order?.email,
+          },
+        },
+      });
+    if (intentError) {
+      setCardError(intentError?.message);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      setCardError("");
+      setTransaction(paymentIntent?.id);
+      setSuccess("Congrats! Your payment is completed! ");
+      const payment = {
+        productPay: order?._id,
+        transactionId: paymentIntent?.id,
+      };
+      // update database
+      if (!order?.paid) {
+        fetch(`http://localhost:5000/payment-update/${order?._id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(payment),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data) {
+              toast.success("Your payment is completed");
+            }
+          });
+      } else {
+        toast.error("Already paid");
+      }
     }
   };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
+    <>
+      <form onSubmit={handleSubmit}>
+        <CardElement
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
+                },
+              },
+              invalid: {
+                color: "#9e2146",
               },
             },
-            invalid: {
-              color: "#9e2146",
-            },
-          },
-        }}
-      />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+          }}
+        />
+        <button
+          className="btn btn-primary btn-xs mt-3"
+          type="submit"
+          disabled={!stripe || !clientSecret || success}
+        >
+          Pay
+        </button>
+      </form>
+      {cardError && <p className="text-red-500 text-center">{cardError}</p>}
+      {success && (
+        <div>
+          <p className="text-success text-center">{success}</p>
+          <p className="text-success text-center">
+            Your transaction id is{" "}
+            <span className="text-accent">{transaction}</span>
+          </p>
+        </div>
+      )}
+    </>
   );
 };
 

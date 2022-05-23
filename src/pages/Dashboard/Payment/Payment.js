@@ -11,7 +11,6 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { orderId } = useParams();
-  console.log(orderId);
   const [order, setOrder] = useState({});
 
   useEffect(() => {
@@ -22,8 +21,8 @@ const Payment = () => {
   }, [orderId]);
 
   return (
-    <div style={{ height: "100vh" }} className="">
-      <div className="md:flex justify-center items-center mt-20 px-1 sm:px-10 ">
+    <div style={{ height: "60vh" }}>
+      <div className="md:flex justify-center items-center mt-20 px-1 sm:px-10">
         <div className="md:w-[30%] md:mr-20 mb-10 md:mb-0">
           <div className="card shadow-2xl bg-primary text-white">
             <div className="card-body">

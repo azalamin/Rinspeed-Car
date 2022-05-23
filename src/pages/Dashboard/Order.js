@@ -2,7 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Order = ({ order, index, setDeleteConfirm }) => {
-  const { productName, productQuantity, totalPrice, address, _id } = order;
+  const {
+    productName,
+    productQuantity,
+    totalPrice,
+    address,
+    _id,
+    paid,
+    transactionId,
+  } = order;
 
   return (
     <tr key={index}>
@@ -11,17 +19,29 @@ const Order = ({ order, index, setDeleteConfirm }) => {
       <td>{productQuantity}</td>
       <td>{totalPrice}$</td>
       <td>{address}</td>
-      <td>
-        <label
-          onClick={() => setDeleteConfirm(order)}
-          htmlFor="delete-confirm"
-          className="btn btn-link"
-        >
-          Cancel
-        </label>
-        <Link to={`/payment/${_id}`} className="btn btn-link">
-          Pay Now
-        </Link>
+      <td className="text-center font-bold">
+        {paid ? (
+          <>
+            <p className="text-success">Paid</p>
+            <p>Transaction Id:</p>
+            <p>
+              <span className="text-accent">{transactionId}</span>
+            </p>
+          </>
+        ) : (
+          <>
+            <label
+              onClick={() => setDeleteConfirm(order)}
+              htmlFor="delete-confirm"
+              className="btn btn-link"
+            >
+              Cancel
+            </label>
+            <Link to={`/payment/${_id}`} className="btn btn-link">
+              Pay Now
+            </Link>
+          </>
+        )}
       </td>
     </tr>
   );

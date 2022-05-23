@@ -4,7 +4,7 @@ import bgFooter from "../assets/image/footer.jpg";
 
 const Footer = () => {
   const { pathname } = useLocation();
-  const routeName = ["signup", "login", "reset", 'dashboard'];
+  const routeName = ["signup", "login", "reset", 'dashboard', 'payment'];
   return (
     <section
       style={{
