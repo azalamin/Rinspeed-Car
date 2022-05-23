@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Order = ({ order, index, setDeleteConfirm }) => {
-  const { productName, productQuantity, totalPrice, address } = order;
+  const { productName, productQuantity, totalPrice, address, _id } = order;
 
   return (
     <tr key={index}>
@@ -18,7 +19,9 @@ const Order = ({ order, index, setDeleteConfirm }) => {
         >
           Cancel
         </label>
-        <button className="btn btn-link">Pay now</button>
+        <Link to={`/payment/${_id}`} className="btn btn-link">
+          Pay Now
+        </Link>
       </td>
     </tr>
   );
