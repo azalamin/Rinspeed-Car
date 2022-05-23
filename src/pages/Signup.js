@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import {
-    useCreateUserWithEmailAndPassword,
-    useUpdateProfile
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import fetcher from '../api/index';
 import Loading from "../components/Loading";
 import SocialLogin from "../components/SocialLogin";
 import auth from "../firebase.init";
@@ -37,6 +38,8 @@ const Signup = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: fullName });
     reset();
+    const userInfo = {fullName, email};
+    const res = await fetcher.post('/user', userInfo);
   };
 
   if (loading) {

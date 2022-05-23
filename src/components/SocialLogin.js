@@ -10,11 +10,11 @@ const SocialLogin = () => {
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
 
- useEffect(() => {
-   if (user) {
-     navigate(from, { replace: true });
-   }
- }, [user, navigate, from]);
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
 
   return (
     <div>
