@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import fetcher from "../api/index";
+import Loading from "../components/Loading";
 import auth from "../firebase.init";
 
 const Purchase = () => {
@@ -10,7 +12,7 @@ const Purchase = () => {
   const { partId } = useParams();
   const { name, description, price, minQuantity, quantity, image } = part;
   const [orderQuantity, setOrderQuantity] = useState(minQuantity);
-  const [orderError, setOrderError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -30,7 +32,37 @@ const Purchase = () => {
     setOrderQuantity(newQuantity);
   };
 
-  const handleOrder = (event) => {};
+  const handleOrder = async (event) => {
+    event.preventDefault();
+    const name = user?.displayName;
+    const email = user?.email;
+    const phone = event.target.phone?.value;
+    const address = event.target.address?.value;
+    const productName = event.target.productName?.value;
+    const productQuantity = event.target.productQuantity?.value;
+    const productPrice = event.target.price?.value;
+    const totalPrice = productPrice * productQuantity;
+
+    const order = {
+      name,
+      email,
+      phone,
+      address,
+      productName,
+      productQuantity,
+      totalPrice,
+    };
+    setLoading(true);
+    const { data } = await fetcher.post("/orders", order);
+    if (data) {
+      toast.success("Placed order successfully.");
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <section className="min-h-screen">
@@ -78,6 +110,7 @@ const Purchase = () => {
                     type="text"
                     class="input input-bordered"
                     value={user?.displayName || ""}
+                    name="fullName"
                     readOnly
                   />
                 </div>
@@ -89,6 +122,7 @@ const Purchase = () => {
                     type="email"
                     class="input input-bordered"
                     value={user?.email || ""}
+                    name="email"
                     readOnly
                   />
                 </div>
@@ -100,6 +134,7 @@ const Purchase = () => {
                     type="text"
                     placeholder="Address"
                     class="input input-bordered"
+                    name="address"
                     required
                   />
                 </div>
@@ -110,6 +145,7 @@ const Purchase = () => {
                   <input
                     type="text"
                     placeholder="Phone"
+                    name="phone"
                     class="input input-bordered"
                   />
                 </div>
@@ -121,6 +157,7 @@ const Purchase = () => {
                     type="text"
                     class="input input-bordered"
                     value={name || ""}
+                    name="productName"
                     readOnly
                   />
                 </div>
@@ -133,6 +170,7 @@ const Purchase = () => {
                     class="input input-bordered"
                     onChange={handleQuantity}
                     defaultValue={orderQuantity || minQuantity}
+                    name="productQuantity"
                     min={minQuantity}
                     max={quantity}
                   />
@@ -159,6 +197,7 @@ const Purchase = () => {
                     type="text"
                     class="input input-bordered"
                     value={price || ""}
+                    name="price"
                     readOnly
                   />
                 </div>
