@@ -13,18 +13,18 @@ const DeleteOrderConfirmation = ({ deleteConfirm, setDeleteConfirm, refetch, }) 
   };
   return (
     <>
-      <input type="checkbox" id="delete-confirm" class="modal-toggle" />
-      <div class="modal modal-middle sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg text-red-500">
+      <input type="checkbox" id="delete-confirm" className="modal-toggle" />
+      <div className="modal modal-middle sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg text-red-500">
             Are you sure you want to cancel this order?
           </h3>
 
-          <div class="modal-action">
-            <label for="delete-confirm" class="btn btn-md">
+          <div className="modal-action">
+            <label htmlFor="delete-confirm" className="btn btn-md">
               Close
             </label>
-            <button onClick={handleDelete} class="btn btn-md btn-error">
+            <button onClick={handleDelete} className="btn btn-md btn-error">
               Confirm
             </button>
           </div>

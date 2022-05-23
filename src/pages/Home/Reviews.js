@@ -51,44 +51,44 @@ const Reviews = () => {
       <h1 className="text-center text-4xl font-bold uppercase mb-20">
         What <span className="text-primary">Our Client</span> Says
       </h1>
-      <div class="w-full md:grid grid-cols-2 gap-10">
+      <div className="w-full md:grid grid-cols-2 gap-10">
         {reviews.map((review, index) => (
           <div
             key={index}
-            class="w-full bg-white rounded-2xl shadow-xl mb-10 md:mb-0"
+            className="w-full bg-white rounded-2xl shadow-xl mb-10 md:mb-0"
           >
-            <div class="w-full flex justify-center p-5 text-center">
+            <div className="w-full flex justify-center p-5 text-center">
               <div>
-                <div class="avatar flex justify-center pt-10">
-                  <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="avatar flex justify-center pt-10">
+                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={review?.image} alt="" />
                   </div>
                 </div>
-                <div class="rating py-5">
+                <div className="rating py-5">
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    className="mask mask-star-2 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    className="mask mask-star-2 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    className="mask mask-star-2 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    className="mask mask-star-2 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    className="mask mask-star-2 bg-orange-400"
                   />
                 </div>
                 <p>
@@ -99,7 +99,7 @@ const Reviews = () => {
                   in particular fractured bedrock environments. ased on their
                   work on this project. "
                 </p>
-                <h2 class="font-semibold py-10"> - {review?.name}</h2>
+                <h2 className="font-semibold py-10"> - {review?.name}</h2>
               </div>
             </div>
           </div>

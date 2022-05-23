@@ -69,26 +69,26 @@ const Purchase = () => {
       <div className="sm:flex justify-evenly items-center">
         <div className="sm:w-[60%] text-right mb-14 sm:mb-0 mt-10 sm:mt-0">
           <div className="flex justify-center">
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
                 <img className="h-60" src={image} alt="Shoes" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">
+              <div className="card-body">
+                <h2 className="card-title">
                   {name}
-                  <div class="badge badge-secondary">New</div>
+                  <div className="badge badge-secondary">New</div>
                 </h2>
                 <h2 className="card-title">{quantity} in stock</h2>
                 <p className="text-left">{description}</p>
-                <div class="card-actions justify-end">
-                  <div class="">
-                    <label class="swap swap-flip text-xl">
+                <div className="card-actions justify-end">
+                  <div className="">
+                    <label className="swap swap-flip text-xl">
                       <input type="checkbox" />
-                      <div class="swap-on">😈</div>
-                      <div class="swap-off">😇</div>
+                      <div className="swap-on">😈</div>
+                      <div className="swap-off">😇</div>
                     </label>
                   </div>
-                  <Link to="/" class="badge badge-outline mt-1">
+                  <Link to="/" className="badge badge-outline mt-1">
                     Get more
                   </Link>
                 </div>
@@ -101,73 +101,73 @@ const Purchase = () => {
             <h1 className="text-2xl font-bold pt-10">ORDER KING</h1>
             <div className="bg-primary h-[4px] w-[20%] my-1 mx-auto sm:mx-0"></div>
             <form onSubmit={handleOrder}>
-              <div class="card-body">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Full Name</span>
+              <div className="card-body">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Full Name</span>
                   </label>
                   <input
                     type="text"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     value={user?.displayName || ""}
                     name="fullName"
                     readOnly
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Email</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
                   </label>
                   <input
                     type="email"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     value={user?.email || ""}
                     name="email"
                     readOnly
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Address</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Address</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Address"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     name="address"
                     required
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Phone Number</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Phone Number</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Phone"
                     name="phone"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Product Name</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Product Name</span>
                   </label>
                   <input
                     type="text"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     value={name || ""}
                     name="productName"
                     readOnly
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Product Quantity</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Product Quantity</span>
                   </label>
                   <input
                     type="number"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     onChange={handleQuantity}
                     defaultValue={orderQuantity || minQuantity}
                     name="productQuantity"
@@ -189,28 +189,28 @@ const Purchase = () => {
                     ""
                   )}
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Price</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Price</span>
                   </label>
                   <input
                     type="text"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     value={price || ""}
                     name="price"
                     readOnly
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="text-2xl font-semibold">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="text-2xl font-semibold">
                       Total Price: $
                       {price * orderQuantity || price * minQuantity}
                     </span>
                   </label>
                 </div>
 
-                <div class="form-control mt-6 pb-10">
+                <div className="form-control mt-6 pb-10">
                   <button
                     disabled={
                       orderQuantity < minQuantity || orderQuantity > quantity
@@ -218,7 +218,7 @@ const Purchase = () => {
                         : false
                     }
                     type="submit"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                   >
                     Place The Order
                   </button>

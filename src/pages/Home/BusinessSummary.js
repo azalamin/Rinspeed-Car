@@ -20,37 +20,37 @@ const BusinessSummary = () => {
         <h1 className="text-center text-4xl font-bold uppercase mb-20">
           Our <span className="text-primary">Business</span> Summary
         </h1>
-        <div class="md:flex justify-center text-center py-5 px-5 md:px-10">
-          <div class="stat">
-            <div class="stat-desc flex justify-center mb-3">
+        <div className="md:flex justify-center text-center py-5 px-5 md:px-10">
+          <div className="stat">
+            <div className="stat-desc flex justify-center mb-3">
               <SiSymantec className="text-5xl text-primary" />
             </div>
-            <div class="stat-value text-primary">100+</div>
-            <div class="stat-title">SERVED CUSTOMERS</div>
+            <div className="stat-value text-primary">100+</div>
+            <div className="stat-title">SERVED CUSTOMERS</div>
           </div>
 
-          <div class="stat">
-            <div class="stat-desc flex justify-center mb-3">
+          <div className="stat">
+            <div className="stat-desc flex justify-center mb-3">
               <RiFundsBoxFill className="text-5xl text-secondary" />
             </div>
-            <div class="stat-value text-secondary">120M+</div>
-            <div class="stat-title">ANNUAL REVENUE</div>
+            <div className="stat-value text-secondary">120M+</div>
+            <div className="stat-title">ANNUAL REVENUE</div>
           </div>
 
-          <div class="stat">
-            <div class="stat-desc flex justify-center mb-3">
+          <div className="stat">
+            <div className="stat-desc flex justify-center mb-3">
               <MdReviews className="text-5xl text-accent" />
             </div>
-            <div class="stat-value text-accent">33k+</div>
-            <div class="stat-title">REVIEWS</div>
+            <div className="stat-value text-accent">33k+</div>
+            <div className="stat-title">REVIEWS</div>
           </div>
 
-          <div class="stat">
-            <div class="stat-desc flex justify-center mb-3">
+          <div className="stat">
+            <div className="stat-desc flex justify-center mb-3">
               <FaTools className="text-5xl text-warning" />
             </div>
-            <div class="stat-value text-warning">50+</div>
-            <div class="stat-title">PARTS</div>
+            <div className="stat-value text-warning">50+</div>
+            <div className="stat-title">PARTS</div>
           </div>
         </div>
       </section>

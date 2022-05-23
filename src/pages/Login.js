@@ -39,20 +39,20 @@ const Login = () => {
 
   return (
     <section className="min-h-[80vh] flex justify-center items-center mt-10 py-10">
-      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <h3 className="text-2xl font-bold text-center mt-5 uppercase">
           Please Login
         </h3>
-        <div class="card-body">
+        <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="text"
                 placeholder="Email"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("email", { required: "Email is required" })}
               />
               {errors?.email ? (
@@ -65,14 +65,14 @@ const Login = () => {
                 ""
               )}
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
                 type="text"
                 placeholder="Password"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("password", { required: "Password is required" })}
               />
               {errors?.password ? (
@@ -84,8 +84,8 @@ const Login = () => {
               ) : (
                 ""
               )}
-              <label class="label">
-                <p class="label-text-alt">
+              <label className="label">
+                <p className="label-text-alt">
                   Don't have account?
                   <Link to="/signup" className="text-primary link link-hover">
                     Create New account
@@ -107,16 +107,16 @@ const Login = () => {
                 ""
               )}
             </div>
-            <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">
+            <div className="form-control mt-6">
+              <button type="submit" className="btn btn-primary">
                 Login
               </button>
             </div>
-            <Link to="/reset" class="text-center text-red-500 block mt-3">
+            <Link to="/reset" className="text-center text-red-500 block mt-3">
               Forgot password?
             </Link>
           </form>
-          <div class="divider">OR</div>
+          <div className="divider">OR</div>
           <SocialLogin />
         </div>
       </div>

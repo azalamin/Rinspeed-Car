@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
-  useCreateUserWithEmailAndPassword,
-  useUpdateProfile
+    useCreateUserWithEmailAndPassword,
+    useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -45,20 +45,20 @@ const Signup = () => {
 
   return (
     <section className="min-h-[80vh] flex justify-center items-center my-20">
-      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <h3 className="text-2xl font-bold text-center mt-5 uppercase">
           Please Sign Up
         </h3>
-        <div class="card-body">
+        <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Full Name</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Full Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("fullName", { required: "Name is required" })}
               />
               {errors?.fullName ? (
@@ -71,14 +71,14 @@ const Signup = () => {
                 ""
               )}
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Email"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("email", { required: "Email is required" })}
               />
               {errors?.email ? (
@@ -91,14 +91,14 @@ const Signup = () => {
                 ""
               )}
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Password"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -125,8 +125,8 @@ const Signup = () => {
               ) : (
                 ""
               )}
-              <label class="label">
-                <p class="label-text-alt">
+              <label className="label">
+                <p className="label-text-alt">
                   Already have account?
                   <Link to="/login" className="text-primary link link-hover">
                     Login
@@ -141,13 +141,13 @@ const Signup = () => {
                 ""
               )}
             </div>
-            <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">
+            <div className="form-control mt-6">
+              <button type="submit" className="btn btn-primary">
                 Signup
               </button>
             </div>
           </form>
-          <div class="divider">OR</div>
+          <div className="divider">OR</div>
           <SocialLogin />
         </div>
       </div>

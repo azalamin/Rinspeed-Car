@@ -3,10 +3,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetcher from "../../../api";
-import CheckoutForm from "./CheckoutForm";
+import CheckoutForm from "../Payment/CheckoutForm";
 
 const stripePromise = loadStripe(
-  "pk_test_51L1coQGG3ma1uWWsM4JIJaRyLFegPVPXpMINK2jFntm7xtdqxIqzCQwkehvstag7tFTKesToNNTLTD6fIF0AeBC300JDnSChsU"
+  "pk_test_51L2fKSBoNy6B09LpoJyG0TaRvjw1dGebMlhIht09GjHwCTbd8unIMQBOkUy9mbkrFJMZ1U1BE2Enx5fIINwAlOlA00dH0graDY"
 );
 
 const Payment = () => {
@@ -17,7 +17,6 @@ const Payment = () => {
   useEffect(() => {
     (async () => {
       const { data } = await fetcher.get(`/payment/${orderId}`);
-      console.log(data);
       setOrder(data);
     })();
   }, [orderId]);
@@ -26,9 +25,9 @@ const Payment = () => {
     <div style={{ height: "100vh" }} className="">
       <div className="md:flex justify-center items-center mt-20 px-1 sm:px-10 ">
         <div className="md:w-[30%] md:mr-20 mb-10 md:mb-0">
-          <div class="card shadow-2xl bg-primary text-white">
-            <div class="card-body">
-              <h5 class="text-xl font-bold">{order?.productName}</h5>
+          <div className="card shadow-2xl bg-primary text-white">
+            <div className="card-body">
+              <h5 className="text-xl font-bold">{order?.productName}</h5>
               <h5 className="font-semibold">
                 Total Quantity:{" "}
                 <span className="bg-[orange] text-black font-bold px-3">
@@ -49,10 +48,10 @@ const Payment = () => {
         <div className="md:w-[40%] border-2 border-primary rounded-2xl">
           <div className="card shadow-lg py-10 px-10">
             <h5 className="text-center pb-4 font-bold mb-4 text-primary">
-              Payment card
+              Make Payment
             </h5>
             <Elements stripe={stripePromise}>
-              <CheckoutForm order={order} />
+              <CheckoutForm />
             </Elements>
           </div>
         </div>

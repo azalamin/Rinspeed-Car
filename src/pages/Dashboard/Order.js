@@ -14,8 +14,8 @@ const Order = ({ order, index, setDeleteConfirm }) => {
       <td>
         <label
           onClick={() => setDeleteConfirm(order)}
-          for="delete-confirm"
-          class="btn btn-link"
+          htmlFor="delete-confirm"
+          className="btn btn-link"
         >
           Cancel
         </label>

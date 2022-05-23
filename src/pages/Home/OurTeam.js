@@ -50,14 +50,14 @@ const OurTeam = () => {
       </div>
       <div className="lg:grid grid-cols-3 gap-10 mt-14">
         {members.map(({ name, role, img, about }, index) => (
-          <div key={index} class="card bg-base-100 shadow-xl mb-10 lg:mb-0">
+          <div key={index} className="card bg-base-100 shadow-xl mb-10 lg:mb-0">
             <div>
               <figure>
                 <img src={img} alt="" />
               </figure>
             </div>
-            <div class="mx-10 p-3 text-white mt-[-40px] bg-primary text-center">
-              <h2 class="text-center text-xl font-bold">{name}</h2>
+            <div className="mx-10 p-3 text-white mt-[-40px] bg-primary text-center">
+              <h2 className="text-center text-xl font-bold">{name}</h2>
               <p className="font-bold">{role}</p>
             </div>
             <div className="card-body">
