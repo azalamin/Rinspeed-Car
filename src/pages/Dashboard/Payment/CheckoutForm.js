@@ -1,10 +1,28 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [clientSecret, setClientSecret] = useState("");
 
+  const totalPrice = order?.totalPrice;
+  useEffect(() => {
+    fetch("http://localhost:5000/create-payment", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ totalPrice }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setClientSecret(data?.clientSecret);
+        }
+      });
+  }, [totalPrice]);
+  console.log(clientSecret);
   const handleSubmit = async (event) => {
     event.preventDefault();
 

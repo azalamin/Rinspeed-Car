@@ -51,7 +51,7 @@ const Payment = () => {
               Make Payment
             </h5>
             <Elements stripe={stripePromise}>
-              <CheckoutForm />
+              <CheckoutForm order={order} />
             </Elements>
           </div>
         </div>
