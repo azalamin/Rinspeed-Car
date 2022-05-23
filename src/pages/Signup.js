@@ -5,24 +5,25 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import fetcher from '../api/index';
 import Loading from "../components/Loading";
 import SocialLogin from "../components/SocialLogin";
 import auth from "../firebase.init";
+import useToken from "../hooks/useToken";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
+  const [token] = useToken(user);
   const location = useLocation();
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, navigate, from]);
+  }, [token, navigate, from]);
 
   const {
     register,
@@ -38,8 +39,6 @@ const Signup = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: fullName });
     reset();
-    const userInfo = {fullName, email};
-    const res = await fetcher.post('/user', userInfo);
   };
 
   if (loading) {
