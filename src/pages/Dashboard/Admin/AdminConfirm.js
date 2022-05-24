@@ -1,14 +1,22 @@
 import React from "react";
-import fetcher from "../../../api";
 
 const AdminConfirm = ({ makeAdmin, setMakeAdmin, refetch }) => {
   const { email } = makeAdmin;
   const handleDelete = async () => {
-    const { data } = await fetcher.patch(`/user/${email}`);
-    if (data) {
-      setMakeAdmin(null);
-      refetch();
-    }
+    fetch(`http://localhost:5000/admin/${email}`, {
+      method: "PUT",
+      headers: {
+        'content-type' : 'application/json',
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setMakeAdmin(null);
+          refetch();
+        }
+      });
   };
   return (
     <>
