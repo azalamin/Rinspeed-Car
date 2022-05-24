@@ -18,7 +18,7 @@ const Parts = () => {
         Our <span className="text-primary">Stock</span> Parts
       </h1>
       <div className="grid md:grid-cols-3 gap-10">
-        {parts.map((part) => (
+        {parts.slice(0, 6).map((part) => (
           <Part key={part?._id} part={part} />
         ))}
       </div>

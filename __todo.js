@@ -10,8 +10,8 @@
  * 8. Done
  * 9. Done
  * 10. Done
- * 11. 
- * 12. 
+ * 11. Done
+ * 12. Done
  * 13. 
  * 14. //! Blogs
  * 15. //! Portfolio
