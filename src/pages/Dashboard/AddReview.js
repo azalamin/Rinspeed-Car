@@ -18,6 +18,7 @@ const AddReview = () => {
   const onSubmit = async (data) => {
     data.name = user?.displayName;
     data.email = user?.email;
+    data.photoURL = user.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png";
     console.log(data);
     const res = await fetcher.post("/review", data);
     console.log(res);
@@ -44,10 +45,6 @@ const AddReview = () => {
               className="input input-bordered"
               {...register("rating", {
                 required: "Rating is required 1 to 5",
-                min: {
-                  value: 1,
-                  message: "Minimum rating number is 1",
-                },
                 max: {
                   value: 5,
                   message: "Maximum rating number is 5",
@@ -77,8 +74,8 @@ const AddReview = () => {
                   message: "Minimum 10 character",
                 },
                 maxLength: {
-                  value: 150,
-                  message: "Maximum 150 character",
+                  value: 250,
+                  message: "Maximum 250 character",
                 },
               })}
             />
