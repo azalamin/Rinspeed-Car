@@ -1,7 +1,7 @@
 import React from "react";
 
 const User = ({ user, index, setMakeAdmin }) => {
-  const { name, email, role, city, _id } = user;
+  const { name, email, role, city } = user;
   return (
     <tr key={index}>
       <th>{index + 1}</th>

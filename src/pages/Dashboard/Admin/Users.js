@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import fetcher from "../../../api";
 import Loading from "../../../components/Loading";
-import auth from "../../../firebase.init";
 import AdminConfirm from "./AdminConfirm";
 import User from "./User";
 
 const Users = () => {
-  const [user] = useAuthState(auth);
   const [makeAdmin, setMakeAdmin] = useState(null);
   const {
     data: users,

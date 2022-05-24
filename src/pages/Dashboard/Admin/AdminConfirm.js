@@ -5,7 +5,6 @@ const AdminConfirm = ({ makeAdmin, setMakeAdmin, refetch }) => {
   const { email } = makeAdmin;
   const handleDelete = async () => {
     const { data } = await fetcher.patch(`/user/${email}`);
-    console.log(data);
     if (data) {
       setMakeAdmin(null);
       refetch();

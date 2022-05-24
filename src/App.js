@@ -1,18 +1,23 @@
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import AdminRoute from "./authentication/AdminRoute";
 import PrivetRoute from "./authentication/PrivetRoute";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import auth from "./firebase.init";
+import useAdmin from "./hooks/useAdmin";
 import AddReview from "./pages/Dashboard/AddReview";
 import Users from "./pages/Dashboard/Admin/Users";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
+import NotFound from "./pages/NotFound";
 import { privetRoutes } from "./routes/privetRoutes";
 import { publicRoutes } from "./routes/publicRoutes";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <>
       <Navbar />
@@ -35,12 +40,14 @@ function App() {
             <Route path="my-orders" element={<MyOrders />} />
             <Route path="add-review" element={<AddReview />} />
             <Route path="my-profile" element={<MyProfile />} />
-            {/* Admin Route */}
-            <Route element={<AdminRoute />}>
-              <Route path="user" element={<Users />} />
-            </Route>
+            {admin && (
+              <>
+                <Route path="user" element={<Users />} />
+              </>
+            )}
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
       <Footer />

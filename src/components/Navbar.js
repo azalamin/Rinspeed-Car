@@ -3,9 +3,11 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import auth from "../firebase.init";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user)
   const { pathname } = useLocation();
   console.log();
   return (
@@ -77,11 +79,19 @@ const Navbar = () => {
                       Profile
                     </NavLink>
                   </li>
-                  <li className="mb-2">
-                    <NavLink className="w-full" to="/dashboard/my-orders">
-                      Dashboard
-                    </NavLink>
-                  </li>
+                  {!admin ? (
+                    <li className="mb-2">
+                      <NavLink className="w-full" to="/dashboard/my-orders">
+                        Dashboard
+                      </NavLink>
+                    </li>
+                  ) : (
+                    <li className="mb-2">
+                      <NavLink className="w-full" to="/dashboard/user">
+                        Dashboard
+                      </NavLink>
+                    </li>
+                  )}
                   <button
                     className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
                     onClick={() => signOut(auth)}

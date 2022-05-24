@@ -1,14 +1,23 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Navigate } from "react-router-dom";
+import Loading from "../components/Loading";
+import auth from "../firebase.init";
 import useAdmin from "../hooks/useAdmin";
 
-const AdminRoute = () => {
-  const [admin] = useAdmin();
-  if (!admin) {
+const AdminRoute = ({ children }) => {
+  const [user, loading] = useAuthState(auth);
+  const [admin, adminLoading] = useAdmin(user);
+
+  if (loading || adminLoading) {
+    return <Loading />;
+  }
+
+  if (!user || !admin) {
     return <Navigate to="/" replace />;
   }
 
-  return <Outlet />;
+  return children;
 };
 
 export default AdminRoute;
