@@ -7,7 +7,6 @@ import auth from "../../firebase.init";
 
 const AddReview = () => {
   const [user] = useAuthState(auth);
-
   const {
     register,
     handleSubmit,
