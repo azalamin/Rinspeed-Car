@@ -15,7 +15,7 @@
  * 13. Done
  * 14. //! Blogs
  * 15. //! Portfolio
- * 16. //! 404 page
+ * 16. Done
  * 17. Done
  * 
  */
