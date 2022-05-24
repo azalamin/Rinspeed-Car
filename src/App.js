@@ -7,6 +7,9 @@ import Navbar from "./components/Navbar";
 import auth from "./firebase.init";
 import useAdmin from "./hooks/useAdmin";
 import AddReview from "./pages/Dashboard/AddReview";
+import AddProduct from "./pages/Dashboard/Admin/AddProduct";
+import ManageOrder from "./pages/Dashboard/Admin/ManageOrder";
+import ManageProduct from "./pages/Dashboard/Admin/ManageProduct";
 import Users from "./pages/Dashboard/Admin/Users";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
@@ -43,6 +46,9 @@ function App() {
             {admin && (
               <>
                 <Route path="user" element={<Users />} />
+                <Route path="manage-order" element={<ManageOrder />} />
+                <Route path="add-product" element={<AddProduct />} />
+                <Route path="mange-product" element={<ManageProduct />} />
               </>
             )}
           </Route>

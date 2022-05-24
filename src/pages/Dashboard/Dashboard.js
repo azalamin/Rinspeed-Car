@@ -42,6 +42,21 @@ const Dashboard = () => {
                   All User
                 </NavLink>
               </li>
+              <li className="mb-2">
+                <NavLink to="manage-order" className="text-white rounded-xl">
+                  Manage All Order
+                </NavLink>
+              </li>
+              <li className="mb-2">
+                <NavLink to="add-product" className="text-white rounded-xl">
+                  Add a Product
+                </NavLink>
+              </li>
+              <li className="mb-2">
+                <NavLink to="mange-product" className="text-white rounded-xl">
+                  Manage Products
+                </NavLink>
+              </li>
             </>
           )}
           <li className="mb-2">
