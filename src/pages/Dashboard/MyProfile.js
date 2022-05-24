@@ -57,13 +57,11 @@ const MyProfile = () => {
               placeholder="Name"
               className="input input-bordered"
               defaultValue={userInfo?.name}
-              {...register("fullName", { required: "Name is required" })}
+              {...register("name", { required: "Name is required" })}
             />
-            {errors?.fullName ? (
+            {errors?.name ? (
               <p>
-                <small className="text-red-600">
-                  {errors.fullName?.message}
-                </small>
+                <small className="text-red-600">{errors.name?.message}</small>
               </p>
             ) : (
               ""
