@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import fetcher from "../../api";
 import auth from "../../firebase.init";
 
@@ -22,7 +23,6 @@ const MyProfile = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     data.email = user?.email;
     if (user) {
       fetch(`http://localhost:5000/user/${user?.email}`, {
@@ -34,12 +34,15 @@ const MyProfile = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          if (data.modifiedCount) {
+            toast.success("Profile updated");
+          } else {
+            toast.error("No new information!");
+          }
         });
     }
   };
 
-  console.log(userInfo);
   return (
     <div>
       <h3 className="text-3xl font-bold py-5 text-center">MY profile</h3>
