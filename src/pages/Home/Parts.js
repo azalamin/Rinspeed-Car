@@ -6,11 +6,8 @@ const Parts = () => {
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
-    // fetch("http://localhost:5000/parts")
-    //   .then((res) => res.json())
-    //   .then((data) => setParts(data));
     (async() => {
-      const {data} = await fetcher.get('/parts');
+      const {data} = await fetcher.get('/parts',);
       setParts(data)
     })()
   }, []);

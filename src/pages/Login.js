@@ -5,19 +5,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import SocialLogin from "../components/SocialLogin";
 import auth from "../firebase.init";
+import useToken from "../hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const location = useLocation();
+  const [token] = useToken(user);
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, navigate, from]);
+  }, [token, navigate, from]);
 
   const {
     register,

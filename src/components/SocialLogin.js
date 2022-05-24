@@ -6,7 +6,7 @@ import auth from "../firebase.init";
 import useToken from "../hooks/useToken";
 
 const SocialLogin = () => {
-  const [signInWithGoogle, user, , error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading , error] = useSignInWithGoogle(auth);
   const location = useLocation();
   const navigate = useNavigate();
   const [token] = useToken(user);
@@ -17,6 +17,10 @@ const SocialLogin = () => {
       navigate(from, { replace: true });
     }
   }, [token, navigate, from]);
+
+  if (loading) {
+    return <h3 className="text-2xl font-bold text-center">Loading</h3>
+  }
 
   return (
     <div>
