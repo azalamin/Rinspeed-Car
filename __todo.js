@@ -12,7 +12,7 @@
  * 10. Done
  * 11. Done
  * 12. Done
- * 13. 
+ * 13. Done
  * 14. //! Blogs
  * 15. //! Portfolio
  * 16. //! 404 page
