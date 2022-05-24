@@ -11,20 +11,20 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-        <ul className="menu overflow-y-auto w-40 sm:w-72 bg-[#1f0063]">
+        <ul className="menu overflow-y-auto w-40 sm:w-72 bg-[#1f0063] pt-5 px-2 md:px-4">
           {/* <!-- Sidebar content here --> */}
-          <li className="border-b-2">
-            <NavLink to="my-orders" className="text-white">
+          <li className=" mb-2">
+            <NavLink to="my-orders" className="text-white rounded-xl">
               My Orders
             </NavLink>
           </li>
-          <li className="border-b-2">
-            <NavLink to="add-review" className="text-white">
+          <li className="mb-2">
+            <NavLink to="add-review" className="text-white rounded-xl">
               Add A Review
             </NavLink>
           </li>
-          <li className="border-b-2">
-            <NavLink to="my-profile" className="text-white">
+          <li className="mb-2">
+            <NavLink to="my-profile" className="text-white rounded-xl">
               My Profile
             </NavLink>
           </li>

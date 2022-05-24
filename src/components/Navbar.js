@@ -7,7 +7,7 @@ import auth from "../firebase.init";
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const { pathname } = useLocation();
-
+  console.log();
   return (
     <nav className="navbar bg-[#f7f7f7] shadow-xl sticky top-0 py-4 z-50 px-6 md:px-10">
       <div className="navbar-start">
@@ -38,28 +38,66 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li className="mx-1">
+          <li className="mx-2">
             <NavLink to="/">Home</NavLink>
           </li>
-          {user ? (
-            <>
-              <li className="mx-1">
-                <NavLink to="/dashboard/my-orders">Dashboard</NavLink>
+          <li className="mx-2">
+            <NavLink to="/blog">blog</NavLink>
+          </li>
+          <li className="mx-2">
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li className="mx-2">
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
+          <div className="dropdown dropdown-end">
+            <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  src={`${
+                    user?.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png"
+                  }`}
+                  alt=""
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex="0"
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 text-center"
+            >
+              <li className="mb-2">
+                <NavLink to="/d" className="w-full">
+                  Settings
+                </NavLink>
               </li>
-
-              <button
-                onClick={() => signOut(auth)}
-                className="btn btn-outline btn-primary mx-1"
-              >
-                Logout
-              </button>
-              <span className="btn btn-link">{user?.displayName} </span>
-            </>
-          ) : (
-            <li className="mx-1">
-              <NavLink to="/login">Login</NavLink>
-            </li>
-          )}
+              {user ? (
+                <>
+                  <li className="mb-2">
+                    <NavLink to="/dashboard/my-profile" className="w-full">
+                      Profile
+                    </NavLink>
+                  </li>
+                  <li className="mb-2">
+                    <NavLink className="w-full" to="/dashboard/my-orders">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  <button
+                    className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
+                    onClick={() => signOut(auth)}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <li>
+                  <NavLink className="my-2 w-full" to="/login">
+                    Login
+                  </NavLink>
+                </li>
+              )}
+            </ul>
+          </div>
         </ul>
       </div>
       <div className="dropdown dropdown-end navbar-end text-right lg:hidden">
