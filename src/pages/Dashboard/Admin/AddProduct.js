@@ -28,7 +28,6 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           const image = result.data.url;
           const parts = {
@@ -40,7 +39,6 @@ const AddProduct = () => {
             price: Number(data.price),
             image: image,
           };
-          console.log(parts);
           //   Send to your database
           fetch("http://localhost:5000/post-part", {
             method: "POST",
@@ -55,7 +53,6 @@ const AddProduct = () => {
               setUploading(false);
               console.log(inserted);
               if (inserted.insertedId) {
-                console.log(inserted);
                 toast.success("Product added successfully");
                 reset();
               } else {
@@ -71,7 +68,7 @@ const AddProduct = () => {
   }
   return (
     <div className="mt-10 ml-5">
-      <h1 className="text-2xl">Add a new Doctor</h1>
+      <h3 className="text-3xl font-bold text-center py-5">Add New Product</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="sm:flex justify-around">
           <div className="sm:w-[40%]">
@@ -235,7 +232,7 @@ const AddProduct = () => {
           <input
             className="btn w-full max-w-xs text-white"
             type="submit"
-            value="Add Products"
+            value="Add Product"
           />
         </div>
       </form>
