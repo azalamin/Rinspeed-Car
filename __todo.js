@@ -38,15 +38,16 @@
 
 //* Optional
 /**
- * 1. 
+ * 1. Done
  * 2. 
  * 3. 
  * 4. 
- * 5. 
- * 6. 
+ * 5. Done
+ * 6. Done
  * 7. Done
- * 8. 
- * 9. 
- * 10. 
+ * 8. Done
+ * 9. Working
+ * 10. no need
+ * 11. Done
  * 
  */
