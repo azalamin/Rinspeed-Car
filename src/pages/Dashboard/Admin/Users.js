@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import fetcher from "../../../api";
+import axiosPrivet from "../../../api/axiosPrivet";
 import Loading from "../../../components/Loading";
 import AdminConfirm from "./AdminConfirm";
 import User from "./User";
@@ -11,7 +11,10 @@ const Users = () => {
     data: users,
     isLoading,
     refetch,
-  } = useQuery("users", async () => await fetcher.get(`/user`));
+  } = useQuery(
+    "users",
+    async () => await axiosPrivet.get(`http://localhost:5000/user`)
+  );
 
   if (isLoading) {
     return <Loading />;

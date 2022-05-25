@@ -37,8 +37,8 @@ const MyProfile = () => {
           `http://localhost:5000/user/${user?.email}`,
           data
         );
-        console.log(res);
-        if (res.data.modifiedCount) {
+        console.log(res.data.result);
+        if (res.data.result.modifiedCount) {
           toast.success("Profile updated");
         } else {
           toast.error("No new information!");
