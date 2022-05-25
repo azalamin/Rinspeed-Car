@@ -40,7 +40,7 @@ const AddProduct = () => {
             image: image,
           };
           //   Send to your database
-          fetch("http://localhost:5000/post-part", {
+          fetch("https://rinspeed-car.herokuapp.com/post-part", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -33,7 +33,7 @@ const OurTeam = () => {
       <div className="md:grid grid-cols-2 justify-between">
         <div className="">
           <h1
-            data-aos="fade-left"
+            data-aos="fade-right"
             data-aos-delay="200"
             data-aos-duration="800"
             className="text-4xl font-extrabold uppercase"
@@ -41,7 +41,7 @@ const OurTeam = () => {
             Our <span className="text-primary">Team</span>
           </h1>
           <p
-            data-aos="fade-left"
+            data-aos="fade-right"
             data-aos-delay="400"
             data-aos-duration="800"
             className="text-lg text-gray-600 py-5"

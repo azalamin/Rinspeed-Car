@@ -13,7 +13,7 @@ const Parts = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          "http://localhost:5000/parts"
+          "https://rinspeed-car.herokuapp.com/parts"
         );
         setParts(data);
       } catch (error) {

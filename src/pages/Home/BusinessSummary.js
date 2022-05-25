@@ -18,7 +18,7 @@ const BusinessSummary = () => {
       className="pt-28 shadow-xl pb-20"
     >
       <h1
-        data-aos="fade-left"
+        data-aos="fade-right"
         data-aos-delay="200"
         data-aos-duration="800"
         className="text-center text-4xl font-bold uppercase mb-20"
@@ -28,7 +28,7 @@ const BusinessSummary = () => {
       <div className="md:flex justify-center text-center py-5 px-5 md:px-10">
         <div
           className="stat"
-          data-aos="fade-left"
+          data-aos="fade-right"
           data-aos-delay="200"
           data-aos-duration="800"
         >

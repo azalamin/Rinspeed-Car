@@ -11,7 +11,7 @@ const AdminConfirm = ({ makeAdmin, setMakeAdmin, refetch }) => {
   const handleDelete = async () => {
     try {
       const { data } = await axiosPrivet.put(
-        `http://localhost:5000/admin/${email}`
+        `https://rinspeed-car.herokuapp.com/admin/${email}`
       );
       if (data) {
         setMakeAdmin(null);

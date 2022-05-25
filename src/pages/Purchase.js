@@ -21,7 +21,7 @@ const Purchase = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          `http://localhost:5000/parts/${partId}`
+          `https://rinspeed-car.herokuapp.com/parts/${partId}`
         );
         setPart(data);
       } catch (error) {

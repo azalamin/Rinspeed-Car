@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
   const { _id } = deleteProduct;
   const handleDelete = async () => {
-    fetch(`http://localhost:5000/delete-part/${_id}`, {
+    fetch(`https://rinspeed-car.herokuapp.com/delete-part/${_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

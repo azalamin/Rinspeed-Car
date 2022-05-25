@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
 
   const totalPrice = order?.totalPrice;
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment", {
+    fetch("https://rinspeed-car.herokuapp.com/create-payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,7 @@ const CheckoutForm = ({ order }) => {
       };
       // update database
       if (!order?.paid) {
-        fetch(`http://localhost:5000/payment-update/${order?._id}`, {
+        fetch(`https://rinspeed-car.herokuapp.com/payment-update/${order?._id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

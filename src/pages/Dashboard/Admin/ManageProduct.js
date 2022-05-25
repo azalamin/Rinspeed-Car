@@ -13,7 +13,7 @@ const ManageProduct = () => {
     refetch,
   } = useQuery(
     "parts",
-    async () => await axiosPrivet.get(`http://localhost:5000/parts`)
+    async () => await axiosPrivet.get(`https://rinspeed-car.herokuapp.com/parts`)
   );
 
   if (isLoading) {

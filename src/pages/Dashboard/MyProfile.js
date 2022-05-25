@@ -16,7 +16,7 @@ const MyProfile = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          `http://localhost:5000/user/${user?.email}`
+          `https://rinspeed-car.herokuapp.com/user/${user?.email}`
         );
         setUserInfo(data);
       } catch (error) {}
@@ -34,7 +34,7 @@ const MyProfile = () => {
       data.email = user?.email;
       if (user) {
         const res = await axiosPrivet.put(
-          `http://localhost:5000/user/${user?.email}`,
+          `https://rinspeed-car.herokuapp.com/user/${user?.email}`,
           data
         );
         console.log(res.data.result);

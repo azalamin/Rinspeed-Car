@@ -5,7 +5,7 @@ const ContactUs = () => {
   return (
     <section id="contact">
       <h1
-        data-aos="fade-left"
+        data-aos="fade-right"
         data-aos-delay="200"
         data-aos-duration="800"
         className="text-center text-4xl font-bold uppercase pt-28"
