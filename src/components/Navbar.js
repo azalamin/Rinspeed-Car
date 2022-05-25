@@ -50,7 +50,7 @@ const Navbar = () => {
             <NavLink to="/portfolio">MY Portfolio</NavLink>
           </li>
           <li className="mx-2">
-            <NavLink to="/contact">Contact</NavLink>
+            <a href="#contact">Contact</a>
           </li>
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
