@@ -7,7 +7,7 @@ import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user)
+  const [admin] = useAdmin(user);
   const { pathname } = useLocation();
   console.log();
   return (
@@ -47,7 +47,7 @@ const Navbar = () => {
             <NavLink to="/blogs">Blog</NavLink>
           </li>
           <li className="mx-2">
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/portfolio">MY Portfolio</NavLink>
           </li>
           <li className="mx-2">
             <NavLink to="/contact">Contact</NavLink>
