@@ -10,6 +10,7 @@ const Order = ({ order, index, setDeleteConfirm }) => {
     _id,
     paid,
     transactionId,
+    status,
   } = order;
 
   return (
@@ -43,6 +44,7 @@ const Order = ({ order, index, setDeleteConfirm }) => {
           </>
         )}
       </td>
+      <td>{status === "shipped" ? <p>Shipped</p> : <p>Pending</p>}</td>
     </tr>
   );
 };
