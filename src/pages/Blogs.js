@@ -6,7 +6,7 @@ const Blogs = () => {
     return matchProducts}`;
   return (
     <div>
-      <h3 className="text-4xl text-center py-16">Welcome to our Blog</h3>
+      <h3 className="text-4xl text-center py-16 font-bold">Welcome to our Blog</h3>
       <div className="px-10">
         <div className="mb-10">
           <h3 className="text-2xl font-bold py-3">
