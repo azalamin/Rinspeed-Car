@@ -87,7 +87,7 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="py-16" id="contact">
-            <h3 className="text-5xl text-center font-bold mt-20">
+            <h3 className="text-5xl text-center font-bold md:mt-16">
               Contact <span className="text-primary">Me</span>
             </h3>
             <div className="mt-16 ">
