@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import PrivetRoute from "./authentication/PrivetRoute";
 import Footer from "./components/Footer";
+import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
 import auth from "./firebase.init";
 import useAdmin from "./hooks/useAdmin";
@@ -23,12 +24,16 @@ import { publicRoutes } from "./routes/publicRoutes";
 
 function App() {
   const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
-  
-  useEffect( () => {
-     AOS.init();
-  }, [])
-  
+  const [admin, adminLoading] = useAdmin(user);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  if (adminLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Navbar />
@@ -48,8 +53,12 @@ function App() {
         {/* Dashboard Routes */}
         <Route element={<PrivetRoute />}>
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="my-orders" element={<MyOrders />} />
-            <Route path="add-review" element={<AddReview />} />
+            {!admin && (
+              <>
+                <Route path="my-orders" element={<MyOrders />} />
+                <Route path="add-review" element={<AddReview />} />
+              </>
+            )}
             <Route path="my-profile" element={<MyProfile />} />
             {admin && (
               <>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import fetcher from "../../../api";
+import axiosPrivet from "../../../api/axiosPrivet";
 import Loading from "../../../components/Loading";
 import DeleteProductModal from "./DeleteProductModal";
 import Product from "./Product";
@@ -11,7 +11,10 @@ const ManageProduct = () => {
     data: parts,
     isLoading,
     refetch,
-  } = useQuery("parts", async () => await fetcher.get(`/parts`));
+  } = useQuery(
+    "parts",
+    async () => await axiosPrivet.get(`http://localhost:5000/parts`)
+  );
 
   if (isLoading) {
     return <Loading />;

@@ -1,18 +1,25 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import fetcher from "../../api";
+import axiosPrivet from "../../api/axiosPrivet";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
   const [userInfo, setUserInfo] = useState({});
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      const { data } = await fetcher.get(`/user/${user?.email}`);
-      setUserInfo(data);
+      try {
+        const { data } = await axiosPrivet.get(
+          `http://localhost:5000/user/${user?.email}`
+        );
+        setUserInfo(data);
+      } catch (error) {}
     })();
   }, [user]);
 
@@ -23,23 +30,25 @@ const MyProfile = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    data.email = user?.email;
-    if (user) {
-      fetch(`http://localhost:5000/user/${user?.email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount) {
-            toast.success("Profile updated");
-          } else {
-            toast.error("No new information!");
-          }
-        });
+    try {
+      data.email = user?.email;
+      if (user) {
+        const res = await axiosPrivet.put(
+          `http://localhost:5000/user/${user?.email}`,
+          data
+        );
+        console.log(res);
+        if (res.data.modifiedCount) {
+          toast.success("Profile updated");
+        } else {
+          toast.error("No new information!");
+        }
+      }
+    } catch (error) {
+      if (error.response.status === 401 || error.response.status === 403) {
+        signOut(auth);
+        navigate("/login");
+      }
     }
   };
 

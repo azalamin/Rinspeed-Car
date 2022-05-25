@@ -1,22 +1,28 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import axiosPrivet from "../../../api/axiosPrivet";
+import auth from "../../../firebase.init";
 
 const AdminConfirm = ({ makeAdmin, setMakeAdmin, refetch }) => {
   const { email } = makeAdmin;
+  const navigate = useNavigate();
+
   const handleDelete = async () => {
-    fetch(`http://localhost:5000/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        'content-type' : 'application/json',
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          setMakeAdmin(null);
-          refetch();
-        }
-      });
+    try {
+      const { data } = await axiosPrivet.put(
+        `http://localhost:5000/admin/${email}`
+      );
+      if (data) {
+        setMakeAdmin(null);
+        refetch();
+      }
+    } catch (error) {
+      if (error.response.status === 401 || error.response.status === 403) {
+        signOut(auth);
+        navigate("/login");
+      }
+    }
   };
   return (
     <>
