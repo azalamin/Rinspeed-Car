@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# [Rinspeed Car | Car Parts Manufacturer Website](asdf)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The user can buy parts of car with an amazing UI experience.
 
-## Available Scripts
+This project has deployed on Firebase. To visit the live website [click here](https://elite-carz.web.app/).\
+To login as an Admin use `admin@rinspeed.com` and `ASd@43!2` respectively as Username and Password.
 
-In the project directory, you can run:
+For the server-side repository [click here](https://github.com/FazleRabbiRana/elite-carz-react-server-side).
 
-### `npm start`
+## About This Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Here is a brief about this project:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Lightening fast :zap: smooth experience with ReactJS
+- Dynamic server-side hosted on Heroku
+- Interactive functional dashboard panel with API management for both admin and general user.
+- Contents, e.g. `orders`, `products`, `users` are completely manageable from the dashboard.
+- Firebase secured single Google authentication system.
 
-### `npm test`
+- Robust and adaptive layout to perfectly match any device form factor
+- Organized and well-commented codes to keep it clean on both the developer and client sides
+- Rinspeed website (single product category selling website)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `built with`
 
-### `npm run build`
+This project is built with [ReactJS](https://reactjs.org/).\
+Authentication system is created with [Firebase](https://firebase.google.com/).\
+[Tailwind CSS](https://tailwindcss.com/) is used for the styles.\
+Server side is hosted on Heroku.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `purpose`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This site is a Manufacturer company website (single product category selling website). So it can be used to sell any single category product. This demo is about a car shop.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `data`
 
-### `npm run eject`
+Data used from Dynamic backend server on [Heroku](https://sheltered-caverns-44637.herokuapp.com/).\
+For example, here is the [blogs link](https://sheltered-caverns-44637.herokuapp.com/blogs) for this project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `icons`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Various icons have been used for this project.\
+Icons are collected from [this](https://react-icons.github.io/react-icons/) React icon library.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Reach me out
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br />
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[<img height="30" src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/azalamin) [<img height="30" src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white">](https://www.facebook.com/me.azalamin) [<img height="30" src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white">](https://twitter.com/azalamins) [<img height="30" src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white">](https://www.instagram.com/me.azalamin) [<img height="30" src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white">](https://dev.to/azalamin)
+<br />

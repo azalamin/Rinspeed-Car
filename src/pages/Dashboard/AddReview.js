@@ -18,9 +18,7 @@ const AddReview = () => {
     data.name = user?.displayName;
     data.email = user?.email;
     data.photoURL = user.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png";
-    console.log(data);
     const res = await fetcher.post("/review", data);
-    console.log(res);
     if (res?.data?.insertedId) {
       toast.success("Review added");
       reset();

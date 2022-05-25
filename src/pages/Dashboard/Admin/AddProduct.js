@@ -51,7 +51,6 @@ const AddProduct = () => {
             .then((res) => res.json())
             .then((inserted) => {
               setUploading(false);
-              console.log(inserted);
               if (inserted.insertedId) {
                 toast.success("Product added successfully");
                 reset();
