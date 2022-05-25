@@ -44,7 +44,15 @@ const Order = ({ order, index, setDeleteConfirm }) => {
           </>
         )}
       </td>
-      <td>{status === "shipped" ? <p>Shipped</p> : <p>Pending</p>}</td>
+      <td>
+        {status === "shipped" ? (
+          <p>Shipped</p>
+        ) : paid ? (
+          <p>Pending</p>
+        ) : (
+          "unpaid"
+        )}
+      </td>
     </tr>
   );
 };

@@ -126,34 +126,62 @@ const Navbar = () => {
           tabIndex="0"
           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <a>Home</a>
+          <li className="">
+            <NavLink to="/">Home</NavLink>
           </li>
-          <li tabIndex="0">
-            <a class="justify-between">
-              Parent
-              <svg
-                class="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-              </svg>
-            </a>
-            <ul class="p-2">
+          <li className="">
+            <NavLink to="/blogs">Blog</NavLink>
+          </li>
+          <li className="">
+            <NavLink to="/portfolio">MY Portfolio</NavLink>
+          </li>
+          <li className="">
+            <a href="#contact">Contact</a>
+          </li>
+          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img
+                src={`${
+                  user?.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png"
+                }`}
+                alt=""
+              />
+            </div>
+          </label>
+            {user ? (
+              <>
+                <li className="mb-2">
+                  <NavLink to="/dashboard/my-profile" className="w-full">
+                    Profile
+                  </NavLink>
+                </li>
+                {!admin ? (
+                  <li className="mb-2">
+                    <NavLink className="w-full" to="/dashboard/my-orders">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li className="mb-2">
+                    <NavLink className="w-full" to="/dashboard/user">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                )}
+                <button
+                  className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
+                  onClick={() => signOut(auth)}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
               <li>
-                <a>Submenu 1</a>
+                <NavLink className="my-2 w-full" to="/login">
+                  Login
+                </NavLink>
               </li>
-              <li>
-                <a>Submenu 2</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+            )}
         </ul>
       </div>
     </nav>

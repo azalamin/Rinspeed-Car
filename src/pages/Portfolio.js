@@ -51,7 +51,7 @@ const Portfolio = () => {
             </p>
             <a
               data-aos="fade-right"
-              data-aos-delay="1000"
+              data-aos-delay="7000"
               data-aos-duration="800"
               href="#contact"
               className="btn btn-primary"
