@@ -1,11 +1,11 @@
-# [Rinspeed Car | Car Parts Manufacturer Website](asdf)
+# [Rinspeed Car | Car Parts Manufacturer Website](https://rinspeed-car.web.app/)
 
-The user can buy parts of car with an amazing UI experience.
+The user can buy parts of car with an amazing Dashboard Management experience.
 
-This project has deployed on Firebase. To visit the live website [click here](https://elite-carz.web.app/).\
-To login as an Admin use `admin@rinspeed.com` and `ASd@43!2` respectively as Username and Password.
+This project has deployed on Firebase. To visit the live website [click here](https://rinspeed-car.web.app/).\
+To login as an Admin use `admin@rinspeed.com` and `Sd@43!2` respectively as Username and Password.
 
-For the server-side repository [click here](https://github.com/FazleRabbiRana/elite-carz-react-server-side).
+For the server-side repository [click here](https://rinspeed-car.web.app).
 
 ## About This Project
 
@@ -34,8 +34,8 @@ This site is a Manufacturer company website (single product category selling web
 
 ### `data`
 
-Data used from Dynamic backend server on [Heroku](https://sheltered-caverns-44637.herokuapp.com/).\
-For example, here is the [blogs link](https://sheltered-caverns-44637.herokuapp.com/blogs) for this project.
+Data used from Dynamic backend server on [Heroku](https://rinspeed-car.herokuapp.com).\
+For example, here is the [blogs link](https://rinspeed-car.herokuapp.com/parts) for this project.
 
 ### `icons`
 
