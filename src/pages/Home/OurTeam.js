@@ -32,10 +32,20 @@ const OurTeam = () => {
     <section className="pt-28 px-5 md:px-10">
       <div className="md:grid grid-cols-2 justify-between">
         <div className="">
-          <h1 className="text-4xl font-extrabold uppercase">
+          <h1
+            data-aos="fade-left"
+            data-aos-delay="200"
+            data-aos-duration="800"
+            className="text-4xl font-extrabold uppercase"
+          >
             Our <span className="text-primary">Team</span>
           </h1>
-          <p className="text-lg text-gray-600 py-5">
+          <p
+            data-aos="fade-left"
+            data-aos-delay="400"
+            data-aos-duration="800"
+            className="text-lg text-gray-600 py-5"
+          >
             The team has consulted on a number of new development projects in
             New York. They offer guidance on navigating all stages of
             development.
@@ -50,7 +60,13 @@ const OurTeam = () => {
       </div>
       <div className="lg:grid grid-cols-3 gap-10 mt-14">
         {members.map(({ name, role, img, about }, index) => (
-          <div key={index} className="card bg-base-100 shadow-xl mb-10 lg:mb-0">
+          <div
+            data-aos="zoom-in-down"
+            data-aos-delay="200"
+            data-aos-duration="800"
+            key={index}
+            className="card bg-base-100 shadow-xl mb-10 lg:mb-0"
+          >
             <div>
               <figure>
                 <img src={img} alt="" />

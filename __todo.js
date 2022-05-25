@@ -29,8 +29,8 @@
  * 4. Done
  * 5. Done
  * 6. Done
- * 7. 
- * 8. 
+ * 7. Not working properly
+ * 8. Done
  * 9. Done
  * 10. Done
  * 

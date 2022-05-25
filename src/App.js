@@ -1,3 +1,6 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -21,6 +24,11 @@ import { publicRoutes } from "./routes/publicRoutes";
 function App() {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+  
+  useEffect( () => {
+     AOS.init();
+  }, [])
+  
   return (
     <>
       <Navbar />

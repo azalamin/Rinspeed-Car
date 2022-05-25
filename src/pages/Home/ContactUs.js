@@ -1,17 +1,31 @@
 import React from "react";
-import contact from '../../assets/image/contact-us.png';
+import contact from "../../assets/image/contact-us.png";
 
 const ContactUs = () => {
   return (
     <section id="contact">
-      <h1 className="text-center text-4xl font-bold uppercase pt-28">
+      <h1
+        data-aos="fade-left"
+        data-aos-delay="200"
+        data-aos-duration="800"
+        className="text-center text-4xl font-bold uppercase pt-28"
+      >
         Get<span className="text-primary"> In</span> Touch
       </h1>
       <div className="max-w-screen-xl mt-5 px-8 grid gap-10 md:gap-20 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-white text-gray-900">
-        <div className="text-gray-700">
+        <div
+          data-aos="zoom-in-down"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          className="text-gray-700"
+        >
           <img src={contact} alt="" />
         </div>
-        <div className="">
+        <div
+          data-aos="zoom-in-down"
+          data-aos-delay="200"
+          data-aos-duration="800"
+        >
           <div>
             <span className="uppercase text-sm text-gray-600 font-bold">
               Full Name
@@ -23,7 +37,9 @@ const ContactUs = () => {
             />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
+            <span className="uppercase text-sm text-gray-600 font-bold">
+              Email
+            </span>
             <input
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="text"

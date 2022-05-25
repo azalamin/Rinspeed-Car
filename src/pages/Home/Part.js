@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 const Part = ({ part }) => {
   const { name, price, minQuantity, quantity, description, image, _id } = part;
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div
+      data-aos="zoom-in-down"
+      data-aos-delay="200"
+      data-aos-duration="800"
+      className="card card-compact bg-base-100 shadow-xl"
+    >
       <figure>
         <img className="max-w-xs max-h-xs" src={image} alt="Shoes" />
       </figure>

@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import fetcher from "../../../api";
 import Loading from "../../../components/Loading";
-import auth from "../../../firebase.init";
 import DeleteOrderModal from "./DeleteOrderModal";
 import OrderRow from "./OrderRow";
 
 const ManageOrder = () => {
-  const [user] = useAuthState(auth);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const {
     data: orders,

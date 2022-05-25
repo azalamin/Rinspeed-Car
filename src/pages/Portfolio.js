@@ -9,7 +9,12 @@ const Portfolio = () => {
     <section>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse px-5">
-          <div className="lg:w-[40%]">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="800"
+            className="lg:w-[40%]"
+          >
             <img
               src={myImage}
               className="sm:max-w-sm rounded-lg shadow-2xl"
@@ -17,15 +22,40 @@ const Portfolio = () => {
             />
           </div>
           <div className="lg:w-[40%] text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Hi! I Am</h1>
-            <h1 className="text-5xl font-bold text-primary">Al-Amin Sheikh</h1>
-            <p className="py-6 font-xl font-semibold">
+            <h1
+              data-aos="fade-right"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              className="text-5xl font-bold"
+            >
+              Hi! I Am
+            </h1>
+            <h1
+              data-aos="fade-right"
+              data-aos-delay="400"
+              data-aos-duration="800"
+              className="text-5xl font-bold text-primary"
+            >
+              Al-Amin Sheikh
+            </h1>
+            <p
+              data-aos="fade-right"
+              data-aos-delay="600"
+              data-aos-duration="800"
+              className="py-6 font-xl font-semibold"
+            >
               A goal getter, as well as a self-starter seeks the position of
               Junior Developer. Bringing excellent proficiency in JavaScript,
               React JS, HTML, CSS, Bootstrap, Tailwindcss, Mongodb, Firebase and
               more. Ready to learn new and explore new technology.
             </p>
-            <a href="#contact" className="btn btn-primary">
+            <a
+              data-aos="fade-right"
+              data-aos-delay="1000"
+              data-aos-duration="800"
+              href="#contact"
+              className="btn btn-primary"
+            >
               Hire Me
             </a>
           </div>
@@ -37,7 +67,12 @@ const Portfolio = () => {
             The <span className="text-primary">Projects</span> I have done
           </h4>
           <div className="md:flex justify-center gap-10 items-center mt-20">
-            <div className="card bg-base-50 shadow-xl image-full mb-10 md:mb-0">
+            <div
+              data-aos="zoom-in-down"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              className="card bg-base-50 shadow-xl image-full mb-10 md:mb-0"
+            >
               <figure>
                 <img src={digitalElectronics} alt="Electronics" />
               </figure>
@@ -53,7 +88,12 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            <div className="card shadow-2xl image-full mb-10 md:mb-0">
+            <div
+              data-aos="zoom-in-down"
+              data-aos-delay="400"
+              data-aos-duration="800"
+              className="card shadow-2xl image-full mb-10 md:mb-0"
+            >
               <figure>
                 <img src={getMeHealthy} alt="Healthy" />
               </figure>
@@ -69,7 +109,12 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            <div className="card image-full mb-10 md:mb-0">
+            <div
+              data-aos="zoom-in-down"
+              data-aos-delay="600"
+              data-aos-duration="800"
+              className="card image-full mb-10 md:mb-0"
+            >
               <figure>
                 <img src={doctorsPortal} alt="Doctor" />
               </figure>
@@ -87,10 +132,20 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="py-16" id="contact">
-            <h3 className="text-5xl text-center font-bold md:mt-16">
+            <h3
+              data-aos="fade-right"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              className="text-5xl text-center font-bold md:mt-16"
+            >
               Contact <span className="text-primary">Me</span>
             </h3>
-            <div className="mt-16 ">
+            <div
+              className="mt-16 "
+              data-aos="zoom-in-down"
+              data-aos-delay="200"
+              data-aos-duration="800"
+            >
               <div className="text-center">
                 <h3 className="font-bold text-3xl">Al-Amin Sheikh</h3>
                 <h3>Professional Front End Developer</h3>
