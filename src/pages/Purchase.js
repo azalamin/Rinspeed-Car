@@ -1,13 +1,16 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import axiosPrivet from "../api/axiosPrivet";
 import fetcher from "../api/index";
 import Loading from "../components/Loading";
 import auth from "../firebase.init";
 
 const Purchase = () => {
   const [part, setPart] = useState({});
+  const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const { partId } = useParams();
   const { name, description, price, minQuantity, quantity, image } = part;
@@ -16,10 +19,20 @@ const Purchase = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await fetcher.get(`/parts/${partId}`);
-      setPart(data);
+      try {
+        const { data } = await axiosPrivet.get(
+          `http://localhost:5000/parts/${partId}`
+        );
+        setPart(data);
+      } catch (error) {
+        console.log(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     })();
-  }, [partId]);
+  }, [partId, navigate]);
 
   const handleQuantity = (event) => {
     const newQuantity = event.target.value;

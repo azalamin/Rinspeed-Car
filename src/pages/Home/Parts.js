@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import fetcher from '../../api/index';
+import fetcher from "../../api/index";
 import Part from "./Part";
 
 const Parts = () => {
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
-    (async() => {
-      const {data} = await fetcher.get('/parts',);
-      setParts(data)
-    })()
+    (async () => {
+      try {
+        const { data } = await fetcher.get("/parts");
+        setParts(data);
+      } catch (error) {
+
+      }
+    })();
   }, []);
 
   return (
