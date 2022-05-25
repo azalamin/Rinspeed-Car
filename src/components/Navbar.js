@@ -67,11 +67,6 @@ const Navbar = () => {
               tabIndex="0"
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 text-center"
             >
-              <li className="mb-2">
-                <NavLink to="/d" className="w-full">
-                  Settings
-                </NavLink>
-              </li>
               {user ? (
                 <>
                   <li className="mb-2">
