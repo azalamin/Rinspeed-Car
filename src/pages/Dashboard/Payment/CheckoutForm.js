@@ -9,9 +9,12 @@ const CheckoutForm = ({ order }) => {
   const [success, setSuccess] = useState("");
   const [transaction, setTransaction] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isClick, setIsClick] = useState(false);
 
   const totalPrice = order?.totalPrice;
   useEffect(() => {
+    setLoading(true);
     fetch("https://rinspeed-car.herokuapp.com/create-payment", {
       method: "POST",
       headers: {
@@ -24,8 +27,15 @@ const CheckoutForm = ({ order }) => {
         if (data) {
           setClientSecret(data?.clientSecret);
         }
+        setLoading(false);
       });
   }, [totalPrice]);
+
+  useEffect(() => {
+    if (success || cardError) {
+      setIsClick(false);
+    }
+  }, [success, cardError]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,21 +81,27 @@ const CheckoutForm = ({ order }) => {
       };
       // update database
       if (!order?.paid) {
-        fetch(`https://rinspeed-car.herokuapp.com/payment-update/${order?._id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(payment),
-        })
+        setLoading(true);
+        fetch(
+          `https://rinspeed-car.herokuapp.com/payment-update/${order?._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(payment),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data) {
               toast.success("Your payment is completed");
             }
+            setLoading(false);
           });
       } else {
         toast.error("Already paid");
+        setLoading(false);
       }
     }
   };
@@ -110,9 +126,10 @@ const CheckoutForm = ({ order }) => {
           }}
         />
         <button
-          className="btn btn-primary btn-xs mt-3"
+          className={`btn btn-primary btn-xs mt-3 ${isClick ? "loading" : ""}`}
           type="submit"
           disabled={!stripe || !clientSecret || success}
+          onClick={() => setIsClick(true)}
         >
           Pay
         </button>

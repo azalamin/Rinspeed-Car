@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetcher from "../../../api";
+import Loading from "../../../components/Loading";
 import CheckoutForm from "../Payment/CheckoutForm";
 
 const stripePromise = loadStripe(
@@ -12,13 +13,20 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const { data } = await fetcher.get(`/payment/${orderId}`);
       setOrder(data);
+      setLoading(false);
     })();
   }, [orderId]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div style={{ height: "60vh" }}>

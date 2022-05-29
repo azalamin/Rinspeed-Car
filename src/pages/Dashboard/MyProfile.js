@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosPrivet from "../../api/axiosPrivet";
+import Loading from "../../components/Loading";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
@@ -26,6 +27,7 @@ const MyProfile = () => {
   const {
     register,
     handleSubmit,
+    isLoading,
     formState: { errors },
   } = useForm();
 
@@ -51,6 +53,10 @@ const MyProfile = () => {
       }
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
