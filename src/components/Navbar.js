@@ -139,16 +139,16 @@ const Navbar = () => {
           tabIndex="0"
           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li className="">
+          <li className="mb-2">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li className="">
+          <li className="mb-2">
             <NavLink to="/blogs">Blog</NavLink>
           </li>
-          <li className="">
+          <li className="mb-2">
             <NavLink to="/portfolio">MY Portfolio</NavLink>
           </li>
-          <li className="">
+          <li className="mb-2">
             <a href="#contact">Contact</a>
           </li>
           <label
