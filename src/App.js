@@ -1,34 +1,23 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import AdminRoute from "./authentication/AdminRoute";
 import PrivetRoute from "./authentication/PrivetRoute";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import auth from "./firebase.init";
-import useAdmin from "./hooks/useAdmin";
-import AddReview from "./pages/Dashboard/AddReview";
-import AddProduct from "./pages/Dashboard/Admin/AddProduct";
-import ManageOrder from "./pages/Dashboard/Admin/ManageOrder";
-import ManageProduct from "./pages/Dashboard/Admin/ManageProduct";
-import Users from "./pages/Dashboard/Admin/Users";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import MyOrders from "./pages/Dashboard/MyOrders";
-import MyProfile from "./pages/Dashboard/MyProfile";
 import NotFound from "./pages/NotFound";
+import { adminPrivetRoutes } from "./routes/adminPrivetRoutes";
 import { privetRoutes } from "./routes/privetRoutes";
 import { publicRoutes } from "./routes/publicRoutes";
+import { userPrivetRoutes } from "./routes/userPrivetRoutes";
 
 function App() {
-  const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
-
   useEffect(() => {
     AOS.init();
   }, []);
-
 
   return (
     <>
@@ -46,26 +35,24 @@ function App() {
           ))}
         </Route>
 
-        {/* Dashboard Routes */}
+        {/* User Dashboard Routes */}
         <Route element={<PrivetRoute />}>
-          <Route path="/dashboard" element={<Dashboard />}>
-            {!admin && (
-              <>
-                <Route path="my-orders" element={<MyOrders />} />
-                <Route path="add-review" element={<AddReview />} />
-              </>
-            )}
-            <Route path="my-profile" element={<MyProfile />} />
-            {admin && (
-              <>
-                <Route path="user" element={<Users />} />
-                <Route path="manage-order" element={<ManageOrder />} />
-                <Route path="add-product" element={<AddProduct />} />
-                <Route path="mange-product" element={<ManageProduct />} />
-              </>
-            )}
+          <Route path="/user-dashboard" element={<Dashboard />}>
+            {userPrivetRoutes.map(({ path, Component }, index) => (
+              <Route key={index} path={path} element={<Component />} />
+            ))}
           </Route>
         </Route>
+
+        {/* Admin Dashboard Routes */}
+        <Route element={<AdminRoute />}>
+          <Route path="/admin-dashboard" element={<Dashboard />}>
+            {adminPrivetRoutes.map(({ path, Component }, index) => (
+              <Route key={index} path={path} element={<Component />} />
+            ))}
+          </Route>
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />

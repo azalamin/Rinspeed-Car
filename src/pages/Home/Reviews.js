@@ -1,31 +1,39 @@
 import React from "postcss";
 import { useEffect, useState } from "react";
 import fetcher from "../../api";
+import Loading from "../../components/Loading";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const { data } = await fetcher.get("/review");
       setReviews(data);
+      setLoading(false);
     })();
   }, []);
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <section className="px-5 md:px-10 pt-28 pb-16 bg-slate-50" id="reviews">
       <h2
-        // data-aos="fade-right"
-        // data-aos-delay="600"
-        // data-aos-duration="800"
+        data-aos="fade-right"
+        data-aos-delay="600"
+        data-aos-duration="800"
         className="text-center pt-10 font-bold text-xl pb-2"
       >
         Testimonials
       </h2>
       <h1
-        // data-aos="fade-right"
-        // data-aos-delay="200"
-        // data-aos-duration="800"
+        data-aos="fade-right"
+        data-aos-delay="200"
+        data-aos-duration="800"
         className="text-center text-4xl font-bold uppercase mb-20"
       >
         What <span className="text-primary">Our Client</span> Says

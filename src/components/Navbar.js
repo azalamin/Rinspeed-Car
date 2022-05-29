@@ -67,33 +67,46 @@ const Navbar = () => {
               tabIndex="0"
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 text-center"
             >
-              {user ? (
+              {admin && (
                 <>
                   <li className="mb-2">
-                    <NavLink to="/dashboard/my-profile" className="w-full">
+                    <NavLink className="w-full" to="/admin-dashboard/user">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  <li className="mb-2">
+                    <NavLink
+                      to="/admin-dashboard/my-profile"
+                      className="w-full"
+                    >
                       Profile
                     </NavLink>
                   </li>
-                  {!admin ? (
-                    <li className="mb-2">
-                      <NavLink className="w-full" to="/dashboard/my-orders">
-                        Dashboard
-                      </NavLink>
-                    </li>
-                  ) : (
-                    <li className="mb-2">
-                      <NavLink className="w-full" to="/dashboard/user">
-                        Dashboard
-                      </NavLink>
-                    </li>
-                  )}
-                  <button
-                    className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
-                    onClick={() => signOut(auth)}
-                  >
-                    Logout
-                  </button>
                 </>
+              )}
+
+              {user && !admin && (
+                <>
+                  <li className="mb-2">
+                    <NavLink to="/user-dashboard/my-profile" className="w-full">
+                      Profile
+                    </NavLink>
+                  </li>
+                  <li className="mb-2">
+                    <NavLink className="w-full" to="/user-dashboard/my-orders">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                </>
+              )}
+
+              {user ? (
+                <button
+                  className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
+                  onClick={() => signOut(auth)}
+                >
+                  Logout
+                </button>
               ) : (
                 <li>
                   <NavLink className="my-2 w-full" to="/login">
@@ -138,50 +151,65 @@ const Navbar = () => {
           <li className="">
             <a href="#contact">Contact</a>
           </li>
-          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+          <label
+            tabIndex="0"
+            className="btn btn-ghost btn-circle avatar w-full"
+          >
             <div className="w-10 rounded-full">
               <img
                 src={`${
                   user?.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png"
                 }`}
+                className="text-center"
                 alt=""
               />
             </div>
           </label>
-            {user ? (
-              <>
-                <li className="mb-2">
-                  <NavLink to="/dashboard/my-profile" className="w-full">
-                    Profile
-                  </NavLink>
-                </li>
-                {!admin ? (
-                  <li className="mb-2">
-                    <NavLink className="w-full" to="/dashboard/my-orders">
-                      Dashboard
-                    </NavLink>
-                  </li>
-                ) : (
-                  <li className="mb-2">
-                    <NavLink className="w-full" to="/dashboard/user">
-                      Dashboard
-                    </NavLink>
-                  </li>
-                )}
-                <button
-                  className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
-                  onClick={() => signOut(auth)}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <li>
-                <NavLink className="my-2 w-full" to="/login">
-                  Login
+
+          {admin && (
+            <>
+              <li className="mb-2">
+                <NavLink className="w-full" to="/admin-dashboard/user">
+                  Dashboard
                 </NavLink>
               </li>
-            )}
+              <li className="mb-2">
+                <NavLink to="/admin-dashboard/my-profile" className="w-full">
+                  Profile
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          {user && !admin && (
+            <>
+              <li className="mb-2">
+                <NavLink to="/user-dashboard/my-profile" className="w-full">
+                  Profile
+                </NavLink>
+              </li>
+              <li className="mb-2">
+                <NavLink className="w-full" to="/user-dashboard/my-orders">
+                  Dashboard
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          {user ? (
+            <button
+              className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
+              onClick={() => signOut(auth)}
+            >
+              Logout
+            </button>
+          ) : (
+            <li>
+              <NavLink className="my-2 w-full" to="/login">
+                Login
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

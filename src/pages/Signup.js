@@ -14,7 +14,7 @@ const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
-  const [token] = useToken(user);
+  const [token, tokenLoading] = useToken(user);
   const location = useLocation();
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
@@ -28,6 +28,7 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
+    isLoading,
     formState: { errors },
     reset,
   } = useForm();
@@ -41,7 +42,7 @@ const Signup = () => {
     reset();
   };
 
-  if (loading) {
+  if (loading || isLoading || tokenLoading) {
     return <Loading />;
   }
 

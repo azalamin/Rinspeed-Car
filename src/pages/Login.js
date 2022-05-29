@@ -11,7 +11,7 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const location = useLocation();
-  const [token] = useToken(user);
+  const [token, tokenLoading] = useToken(user);
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
 
@@ -24,6 +24,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    isLoading,
     formState: { errors },
     reset,
   } = useForm();
@@ -35,7 +36,7 @@ const Login = () => {
     reset();
   };
 
-  if (loading) {
+  if (loading || isLoading || tokenLoading) {
     return <Loading />;
   }
 
