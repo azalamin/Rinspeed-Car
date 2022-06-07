@@ -41,7 +41,7 @@ const Login = () => {
   }
 
   return (
-    <section className="min-h-[80vh] flex justify-center items-center mt-10 py-10">
+    <section className="min-h-[80vh] flex justify-center items-center mt-20 py-10">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <h3 className="text-2xl font-bold text-center mt-5 uppercase">
           Please Login

@@ -47,7 +47,7 @@ const Signup = () => {
   }
 
   return (
-    <section className="min-h-[80vh] flex justify-center items-center my-20">
+    <section className="min-h-[80vh] flex justify-center items-center pt-32 mb-20 z-0">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <h3 className="text-2xl font-bold text-center mt-5 uppercase">
           Please Sign Up
