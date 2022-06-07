@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
 import useAdmin from "../hooks/useAdmin";
 import "./Navbar.css";
@@ -10,15 +10,16 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
   const location = useLocation();
   console.log();
 
   const changeBackground = () => {
-    if(window.scrollY >= 80){
-      setIsActive(true)
-    } else{
-      setIsActive(false)
+    if (window.scrollY >= 80) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   };
 
@@ -154,7 +155,11 @@ const Navbar = () => {
               {user ? (
                 <button
                   className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
-                  onClick={() => signOut(auth)}
+                  onClick={() => {
+                    signOut(auth);
+                    navigate("/");
+                    window.location.reload(true);
+                  }}
                 >
                   Logout
                 </button>
@@ -252,7 +257,11 @@ const Navbar = () => {
           {user ? (
             <button
               className="my-3 bg-error hover:bg-red-500 py-2 rounded-md"
-              onClick={() => signOut(auth)}
+              onClick={() => {
+                signOut(auth);
+                navigate("/");
+                window.location.reload(true);
+              }}
             >
               Logout
             </button>
