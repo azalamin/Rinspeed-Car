@@ -10,7 +10,7 @@ const HomeBanner = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-        className="flex justify-center items-center min-h-[91vh] px-5 md:px-10"
+        className="flex justify-center items-center min-h-[100vh] px-5 md:px-10"
       >
         <div>
           <h1

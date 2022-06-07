@@ -1,17 +1,35 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import auth from "../firebase.init";
 import useAdmin from "../hooks/useAdmin";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const { pathname } = useLocation();
+  const [isActive, setIsActive] = useState(false);
+  const location = useLocation();
   console.log();
+
+  const changeBackground = () => {
+    if(window.scrollY >= 80){
+      setIsActive(true)
+    } else{
+      setIsActive(false)
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
+
   return (
-    <nav className="navbar bg-[#f7f7f7] shadow-xl sticky top-0 py-4 z-50 px-6 md:px-10">
+    <nav
+      className={`navbar shadow-xl fixed w-full top-0 py-4 z-50 px-6 md:px-10 ${
+        isActive ? "active" : "custom-navbar"
+      }`}
+    >
       <div className="navbar-start">
         <label
           htmlFor="dashboard-drawer"
@@ -34,27 +52,60 @@ const Navbar = () => {
             />
           </svg>
         </label>
-        <Link to="/" className="btn btn-ghost normal-case text-lg sm:text-xl">
+        <Link
+          to="/"
+          className={`btn btn-ghost normal-case text-lg sm:text-xl ${
+            location.pathname === "/" && !isActive ? "text-white" : ""
+          }`}
+        >
           RINSPEED CAR
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li className="mx-2">
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              className={`${
+                location.pathname === "/" && !isActive ? "text-white" : ""
+              }`}
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li className="mx-2">
-            <NavLink to="/blogs">Blog</NavLink>
+            <NavLink
+              className={`${
+                location.pathname === "/" && !isActive ? "text-white" : ""
+              }`}
+              to="/blogs"
+            >
+              Blog
+            </NavLink>
           </li>
           <li className="mx-2">
-            <NavLink to="/portfolio">MY Portfolio</NavLink>
+            <NavLink
+              className={`${
+                location.pathname === "/" && !isActive ? "text-white" : ""
+              }`}
+              to="/portfolio"
+            >
+              MY Portfolio
+            </NavLink>
           </li>
           <li className="mx-2">
-            <a href="#contact">Contact</a>
+            <a
+              className={`${
+                location.pathname === "/" && !isActive ? "text-white" : ""
+              }`}
+              href="#contact"
+            >
+              Contact
+            </a>
           </li>
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+              <div className={`w-10 rounded-full bg-white ${!user && "p-2"}`}>
                 <img
                   src={`${
                     user?.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png"
@@ -125,7 +176,9 @@ const Navbar = () => {
             className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            stroke={`${
+              location.pathname === "/" && !isActive ? "white" : "black"
+            }`}
           >
             <path
               strokeLinecap="round"
@@ -155,7 +208,7 @@ const Navbar = () => {
             tabIndex="0"
             className="btn btn-ghost btn-circle avatar w-full"
           >
-            <div className="w-10 rounded-full">
+            <div className={`w-10 rounded-full bg-white ${!user && "p-2"}`}>
               <img
                 src={`${
                   user?.photoURL || "https://i.ibb.co/JnsL8m4/unknown.png"

@@ -5,7 +5,7 @@ const Blogs = () => {
     const matchProducts = products.filter(product => product.name.includes(searchText));
     return matchProducts}`;
   return (
-    <div>
+    <div className="mt-20">
       <h3 className="text-4xl text-center py-16 font-bold">Welcome to our Blog</h3>
       <div className="px-10">
         <div className="mb-10">

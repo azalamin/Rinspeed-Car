@@ -6,7 +6,7 @@ import myImage from "../assets/image/my-img.png";
 
 const Portfolio = () => {
   return (
-    <section>
+    <section className="mt-20">
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse px-5">
           <div
