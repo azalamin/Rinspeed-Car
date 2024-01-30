@@ -15,7 +15,7 @@ const OrderRow = ({ order, index, setDeleteConfirm, refetch }) => {
 
   const handleConfirmShipped = (id) => {
     console.log(id);
-    fetch(`https://rinspeed-car.herokuapp.com/confirm-order/${id}`, {
+    fetch(`https://rinspeed-car-server.vercel.app/confirm-order/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

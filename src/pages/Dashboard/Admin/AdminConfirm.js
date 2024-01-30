@@ -12,7 +12,7 @@ const AdminConfirm = ({ makeAdmin, setMakeAdmin, refetch }) => {
   const handleDelete = async () => {
     try {
       const { data } = await axiosPrivet.put(
-        `https://rinspeed-car.herokuapp.com/admin/${email}`
+        `https://rinspeed-car-server.vercel.app/admin/${email}`
       );
       if (data) {
         toast.success('Successfully made admin');

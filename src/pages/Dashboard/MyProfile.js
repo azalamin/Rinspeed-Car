@@ -17,10 +17,10 @@ const MyProfile = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          `https://rinspeed-car.herokuapp.com/user/${user?.email}`
+          `https://rinspeed-car-server.vercel.app/user/${user?.email}`
         );
         setUserInfo(data);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [user]);
 
@@ -36,7 +36,7 @@ const MyProfile = () => {
       data.email = user?.email;
       if (user) {
         const res = await axiosPrivet.put(
-          `https://rinspeed-car.herokuapp.com/user/${user?.email}`,
+          `https://rinspeed-car-server.vercel.app/user/${user?.email}`,
           data
         );
         console.log(res.data.result);
