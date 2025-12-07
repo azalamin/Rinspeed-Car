@@ -21,7 +21,7 @@ const Purchase = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          `https://rinspeed-car-server.vercel.app/parts/${partId}`
+          `https://rinspeed-car-server.onrender.com/parts/${partId}`
         );
         setPart(data);
       } catch (error) {

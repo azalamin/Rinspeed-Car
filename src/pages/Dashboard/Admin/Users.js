@@ -13,7 +13,7 @@ const Users = () => {
     refetch,
   } = useQuery(
     "users",
-    async () => await axiosPrivet.get(`https://rinspeed-car-server.vercel.app/user`)
+    async () => await axiosPrivet.get(`https://rinspeed-car-server.onrender.com/user`)
   );
 
   if (isLoading) {

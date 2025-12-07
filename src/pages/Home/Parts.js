@@ -16,7 +16,7 @@ const Parts = () => {
       try {
         setLoading(true);
         const { data } = await axiosPrivet.get(
-          "https://rinspeed-car-server.vercel.app/parts"
+          "https://rinspeed-car-server.onrender.com/parts"
         );
         setParts(data);
         setLoading(false);

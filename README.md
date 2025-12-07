@@ -34,8 +34,8 @@ This site is a Manufacturer company website (single product category selling web
 
 ### `data`
 
-Data used from Dynamic backend server on [Heroku](https://rinspeed-car-server.vercel.app).\
-For example, here is the [blogs link](https://rinspeed-car-server.vercel.app/parts) for this project.
+Data used from Dynamic backend server on [Heroku](https://rinspeed-car-server.onrender.com).\
+For example, here is the [blogs link](https://rinspeed-car-server.onrender.com/parts) for this project.
 
 ### `icons`
 

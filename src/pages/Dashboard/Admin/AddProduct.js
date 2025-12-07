@@ -40,7 +40,7 @@ const AddProduct = () => {
             image: image,
           };
           //   Send to your database
-          fetch("https://rinspeed-car-server.vercel.app/post-part", {
+          fetch("https://rinspeed-car-server.onrender.com/post-part", {
             method: "POST",
             headers: {
               "content-type": "application/json",

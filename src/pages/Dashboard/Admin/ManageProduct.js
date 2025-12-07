@@ -13,7 +13,7 @@ const ManageProduct = () => {
     refetch,
   } = useQuery(
     "parts",
-    async () => await axiosPrivet.get(`https://rinspeed-car-server.vercel.app/parts`)
+    async () => await axiosPrivet.get(`https://rinspeed-car-server.onrender.com/parts`)
   );
 
   if (isLoading) {

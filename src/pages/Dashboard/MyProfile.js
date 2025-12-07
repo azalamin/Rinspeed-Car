@@ -17,7 +17,7 @@ const MyProfile = () => {
     (async () => {
       try {
         const { data } = await axiosPrivet.get(
-          `https://rinspeed-car-server.vercel.app/user/${user?.email}`
+          `https://rinspeed-car-server.onrender.com/user/${user?.email}`
         );
         setUserInfo(data);
       } catch (error) { }
@@ -36,7 +36,7 @@ const MyProfile = () => {
       data.email = user?.email;
       if (user) {
         const res = await axiosPrivet.put(
-          `https://rinspeed-car-server.vercel.app/user/${user?.email}`,
+          `https://rinspeed-car-server.onrender.com/user/${user?.email}`,
           data
         );
         console.log(res.data.result);

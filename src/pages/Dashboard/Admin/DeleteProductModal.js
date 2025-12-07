@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
   const { _id } = deleteProduct;
   const handleDelete = async () => {
-    fetch(`https://rinspeed-car-server.vercel.app/delete-part/${_id}`, {
+    fetch(`https://rinspeed-car-server.onrender.com/delete-part/${_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

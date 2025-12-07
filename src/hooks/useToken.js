@@ -9,7 +9,7 @@ const useToken = (user) => {
     const currentUser = { email: email, name: name };
     if (email) {
       setTokenLoading(true);
-      fetch(`https://rinspeed-car-server.vercel.app/user/${email}`, {
+      fetch(`https://rinspeed-car-server.onrender.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

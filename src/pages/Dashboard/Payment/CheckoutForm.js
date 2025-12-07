@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
   const totalPrice = order?.totalPrice;
   useEffect(() => {
     setLoading(true);
-    fetch("https://rinspeed-car-server.vercel.app/create-payment", {
+    fetch("https://rinspeed-car-server.onrender.com/create-payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,7 +83,7 @@ const CheckoutForm = ({ order }) => {
       if (!order?.paid) {
         setLoading(true);
         fetch(
-          `https://rinspeed-car-server.vercel.app/payment-update/${order?._id}`,
+          `https://rinspeed-car-server.onrender.com/payment-update/${order?._id}`,
           {
             method: "PATCH",
             headers: {
