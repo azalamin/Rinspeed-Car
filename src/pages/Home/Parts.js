@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosPrivet from "../../api/axiosPrivet";
 import Loading from '../../components/Loading';
@@ -12,34 +12,45 @@ const Parts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    (async () => {
+    const loadParts = async () => {
       try {
         setLoading(true);
-        const { data } = await axiosPrivet.get(
+
+        const response = await axiosPrivet.get(
           "https://rinspeed-car-server.onrender.com/parts"
         );
-        setParts(data);
-        setLoading(false);
+
+        // Ensure parts is always an array
+        const partsData = Array.isArray(response.data)
+          ? response.data
+          : response.data?.data || [];
+
+        setParts(partsData);
       } catch (error) {
-        setLoading(false);
-        if (error.response.status === 401 || error.response.status === 403) {
+        console.error("Parts loading failed:", error);
+        setParts([]);
+
+        if (error?.response?.status === 401 || error?.response?.status === 403) {
           signOut(auth);
           navigate("/login");
         }
+      } finally {
+        setLoading(false);
       }
-    })();
+    };
+
+    loadParts();
   }, [navigate]);
 
 
-  if (loading) {
-    return <Loading />
-  }
+  if (loading) return <Loading />;
 
   return (
     <section id="parts" className="px-5 md:px-10 bg-white pt-28">
       <h1 className="text-center text-4xl font-bold uppercase mb-20">
         Our <span className="text-primary">Stock</span> Parts
       </h1>
+
       <div className="grid md:grid-cols-3 gap-10">
         {parts.slice(0, 6).map((part) => (
           <Part key={part?._id} part={part} />

@@ -1,4 +1,3 @@
-import React from "postcss";
 import { useEffect, useState } from "react";
 import fetcher from "../../api";
 import Loading from "../../components/Loading";
@@ -8,17 +7,30 @@ const Reviews = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      const { data } = await fetcher.get("/review");
-      setReviews(data);
-      setLoading(false);
-    })();
+    const loadReviews = async () => {
+      try {
+        setLoading(true);
+
+        const res = await fetcher.get("/review");
+
+        // Ensure reviews is always an array
+        const reviewData = Array.isArray(res.data)
+          ? res.data
+          : res.data?.data || [];
+
+        setReviews(reviewData);
+      } catch (error) {
+        console.error("Failed to load reviews:", error);
+        setReviews([]); // prevent crash
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadReviews();
   }, []);
 
-  if (loading) {
-    return <Loading />
-  }
+  if (loading) return <Loading />;
 
   return (
     <section className="px-5 md:px-10 pt-28 pb-16 bg-slate-50" id="reviews">
@@ -38,8 +50,9 @@ const Reviews = () => {
       >
         What <span className="text-primary">Our Client</span> Says
       </h1>
+
       <div className="w-full md:grid grid-cols-2 gap-10">
-        {reviews?.slice(0, 4).map((review, index) => (
+        {reviews.slice(0, 4).map((review, index) => (
           <div
             key={index}
             data-aos="zoom-in-down"
@@ -54,18 +67,22 @@ const Reviews = () => {
                     <img src={review?.photoURL} alt="" />
                   </div>
                 </div>
+
                 <div className="rating py-5">
-                  {[...Array(Number(review?.rating)).keys()].map((number) => (
-                    <input
-                      key={number}
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                  ))}
+                  {[...Array(Number(review?.rating || 0)).keys()].map(
+                    (number) => (
+                      <input
+                        key={number}
+                        type="radio"
+                        name={`rating-${index}`}
+                        className="mask mask-star-2 bg-orange-400"
+                      />
+                    )
+                  )}
                 </div>
+
                 <p>{review?.description}</p>
-                <h2 className="font-semibold py-10"> - {review?.name}</h2>
+                <h2 className="font-semibold py-10">- {review?.name}</h2>
               </div>
             </div>
           </div>
