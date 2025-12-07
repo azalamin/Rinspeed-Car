@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const CheckoutForm = ({ order }) => {
@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
   const totalPrice = order?.totalPrice;
   useEffect(() => {
     setLoading(true);
-    fetch("https://rinspeed-car-server.onrender.com/create-payment", {
+    fetch("http://localhost:5001/create-payment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

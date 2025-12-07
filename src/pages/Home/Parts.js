@@ -17,14 +17,13 @@ const Parts = () => {
         setLoading(true);
 
         const response = await axiosPrivet.get(
-          "https://rinspeed-car-server.onrender.com/parts"
+          "http://localhost:5001/parts"
         );
 
         // Ensure parts is always an array
         const partsData = Array.isArray(response.data)
           ? response.data
           : response.data?.data || [];
-
         setParts(partsData);
       } catch (error) {
         console.error("Parts loading failed:", error);

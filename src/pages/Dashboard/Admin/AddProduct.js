@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -40,7 +40,7 @@ const AddProduct = () => {
             image: image,
           };
           //   Send to your database
-          fetch("https://rinspeed-car-server.onrender.com/post-part", {
+          fetch("http://localhost:5001/post-part", {
             method: "POST",
             headers: {
               "content-type": "application/json",

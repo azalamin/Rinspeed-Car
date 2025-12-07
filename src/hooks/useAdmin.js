@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 const useAdmin = (user) => {
   const [admin, setAdmin] = useState(false);
   const [adminLoading, setAdminLoading] = useState(true);
+
   useEffect(() => {
-    const email = user?.email;
-    if (email) {
-      fetch(`https://rinspeed-car-server.onrender.com/admin/${user?.email}`, {
-        method: "GET",
+    if (user?.email) {
+      fetch(`https://rinspeed-car-server.onrender.com/user/admin/${user.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
